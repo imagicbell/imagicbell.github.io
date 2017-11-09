@@ -1,8 +1,7 @@
 ---
-layout: post
 title:  "Unity协程：解决嵌套IEnumerator导致多一帧的问题"
 date:   2017-10-30 15:00:00 +0800
-categories: Unity/C#
+categories: Unity
 ---
 
 

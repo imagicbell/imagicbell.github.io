@@ -1,8 +1,7 @@
 ---
-layout: post
 title:  "旅行-新西兰"
 date:   2017-10-19 20:00:00 +0800
-categories: travel
+categories: Travel
 ---
 
 

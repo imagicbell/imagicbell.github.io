@@ -1,8 +1,7 @@
 ---
-layout: post
 title:  "Google Blockly Reimplementation with Unity/C#(2)"
 date:   2017-10-14 12:00:00 +0800
-categories: Unity/C#
+categories: Unity
 ---
 
 ## Google Blockly Model

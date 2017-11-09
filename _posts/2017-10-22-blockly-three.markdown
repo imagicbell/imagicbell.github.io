@@ -1,8 +1,7 @@
 ---
-layout: post
 title:  "Google Blockly Reimplementation with Unity/C#(3)"
 date:   2017-10-22 16:00:00 +0800
-categories: Unity/C#
+categories: Unity
 ---
 
 ## Code Generator, Interpreter and Runner

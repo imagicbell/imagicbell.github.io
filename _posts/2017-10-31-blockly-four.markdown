@@ -1,8 +1,7 @@
 ---
-layout: post
 title:  "Google Blockly Reimplementation with Unity/C#(4)"
 date:   2017-10-31 20:00:00 +0800
-categories: Unity/C#
+categories: Unity
 ---
 
 ## UGUI Design
