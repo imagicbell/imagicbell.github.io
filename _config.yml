@@ -19,9 +19,9 @@ email: sophieml1989@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Never give a limitation of what I can do.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://imagicbell.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  imagicbell
-repository: "magicbell/blog"
+url: "http://magicbell.beanstu.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: imagicbell
+repository: "imagicbell.github.io"
 
 # Build settings
 markdown: kramdown
@@ -77,7 +77,7 @@ author:
   avatar : "/assets/images/avatar.png"
   bio    : ""
   email  : "sophieml1989@gmail.com"
-  uri    : "https://imagicbell.github.io/"
+  uri    : "http://magicbell.beanstu.io"
 
 category_archive:
   type: jekyll-archives
