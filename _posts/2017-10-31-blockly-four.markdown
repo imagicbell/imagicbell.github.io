@@ -176,11 +176,11 @@ switch (Type)
 
 ![]({{ "/assets/img-blockly/Layout_7.png" | absolute_url }})  ->  ![]({{ "/assets/img-blockly/Layout_8.png" | absolute_url }})
 
-上图用圆点标记的，是由外部Layout计算好之后的每一个LineGroup的顶点min, max。代码不赘述。
+上图用圆点标记的，是由外部Layout计算好之后的每一个LineGroup的顶点min, max。分析与代码详见[这篇]({% post_url 2017-12-1-unity-image-manipulation %})。
 
 动态绘制底图还有一个好处是：不需要拼接图片，减少了资源量，并且避免了Draw Call的增加。
 
-这里遗留一个问题，上图可以看出，ConnectionInput View是用一张白色的图放在Block View底图上，模拟空缺的表现，但其实效果不佳。后续优化考虑在绘制底图时加上空缺，同样是通过设置合适的顶点、uv，这样底图的绘制会更复杂一些。
+
 
 ### Observer Pattern
 
