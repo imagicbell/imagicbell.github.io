@@ -1,7 +1,7 @@
 ---
 title:  "Customize CSS Class In React-Bootstrap Under CSS-Modules"
 date:   2018-1-30 13:00:00 +0800
-categories: front-end
+categories: Front-End
 ---
 
 
