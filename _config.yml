@@ -26,8 +26,7 @@ repository: "imagicbell.github.io"
 # Build settings
 markdown: kramdown
 #theme: minima
-#theme: minimal-mistakes-jekyll
-remote_theme: "mmistakes/minimal-mistakes"
+remote_theme: "imagicbell/minimal-mistakes"
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
@@ -50,7 +49,7 @@ paginate_path: /page:num/
 minimal_mistakes_skin : "default" # "air", "contrast", "dark", "dirt", "mint", "sunrise"
 locale: "en" #"zh-CN", "en-GB", "en-US"
 #teaser: /assets/images/NZ1.png
-#breadcrumbs: true
+breadcrumbs: true
 
 include: ["_pages"]
 
