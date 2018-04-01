@@ -73,13 +73,6 @@ defaults:
       layout: single
       author_profile: true
 
-author:
-  name   : "Ling Mao"
-  avatar : "/assets/images/avatar.png"
-  bio    : ""
-  email  : "sophieml1989@gmail.com"
-  uri    : "http://magicbell.beanstu.io"
-
 category_archive:
   type: liquid
   path: /categories/
