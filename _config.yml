@@ -73,6 +73,14 @@ defaults:
       layout: single
       author_profile: true
 
+author:
+  name: "Ling Mao"
+  uri: "http://magicbell.beanstu.io"
+  email: "sophieml1989@gmail.com"
+  bio: "Coding for front-end apps and Unity games."
+  avatar: "/assets/images/avatar.png"
+  linkedin: "magicbell"
+
 category_archive:
   type: liquid
   path: /categories/
