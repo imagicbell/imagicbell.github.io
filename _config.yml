@@ -46,7 +46,7 @@ plugins:
 paginate: 8 # amount of posts to show
 paginate_path: /page:num/
 
-minimal_mistakes_skin : "default" # "air", "contrast", "dark", "dirt", "mint", "sunrise"
+minimal_mistakes_skin : "dark" #"default" # "air", "contrast", "dark", "dirt", "mint", "sunrise"
 locale: "en" #"zh-CN", "en-GB", "en-US"
 #teaser: /assets/images/NZ1.png
 # breadcrumbs: true
