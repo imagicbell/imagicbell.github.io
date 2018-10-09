@@ -22,7 +22,7 @@ I’ve encountered a problem to adjust the position of orthographic camera for r
 
 See the picture below:
 
-![]({{ "/assets/img-orthographic-camera/1.png" | absolute_url }})
+![]({{ "/assets/img-orthographic-camera/1.jpg" | absolute_url }})
 
 #### 1. Get Bounding Box `bound`
 
@@ -38,15 +38,27 @@ So let's calucate the height of the view volume.
 
 Fortunately, the calucation doesn't need spatial transformation. All is done in global space, as we use orthographic camera and the proportianl value.
 
-According to the picture above, we can get `d` by the bounding box calulated from step 1. So the height of camera view volume is:
-
+According to the picture above, we can get $\alpha$ by the bounding box calulated from step 1. 
 $$
-camera.height = \frac{d} {rect.height}
+\alpha = arctan(\frac{bound.height} {bound.depth})
+$$
+Then `d`:
+$$
+d = \frac {bound.height} {sin\alpha}
+$$
+
+Then the height of the object on screen, we call it view.height: 
+$$
+view.height = d \times sin(\alpha + \theta) = \frac {bound.height}{sin\alpha} \times sin(\alpha + \theta)
+$$
+So the height of camera view volume is:
+$$
+camera.height = \frac{view.height} {rect.height} = \frac {bound.height} {rect.height} \times \frac{sin(\alpha + \theta)} {sin\alpha}
 $$
 
 Remember in *Prerequisite 2*, the `rect` is defined with the proportional value relative to the screen.
 
-However, that's not enough. We should ensure the aspect ratio, and the bounding of objects' view not exceeding the view volume. So we calculate the width of camera view volume: 
+However, that's not enough. We should ensure the aspect ratio, and the bounding of object's view not exceeding the view volume. So we calculate the width of camera view volume: 
 
 $$
 camera.width = camera.height \times camera.aspect
@@ -56,23 +68,44 @@ $$
 camera.width.needed = \frac{bound.width}{rect.width}
 $$
 
-if `camera.width < camera.width.needed` then
+if `camera.width > camera.width.needed`, it means that actually more width is given than that the object needs, so we should change the actual proportional value of the object's width on screen:
+$$
+rect.width = rect.width \times \frac {camera.width.needed}{camera.width}
+$$
 
 $$
+rect.x = 0.5 + (rect.x - 0.5)\times\frac{camera.width.needed}{camera.width}
+$$
+
+if `camera.width < camera.width.needed`, it means that the actual width of object's view exceeds the camera's view volume. So we need to extend the view volume:
+$$
 camera.width = camera.width.needed
+$$
+
+Let's save the old camera.height before computing the new camera.height:
+$$
+camera.height.needed = camera.height
 $$
 
 $$
 camera.height = \frac{camera.width}{camera.aspect}
 $$
 
-then
+Now that `camera.height > camera.height.needed`, we need to re-compute the actual proportional value of the object's height on screen, same as width above:
+$$
+rect.height = rect.height \times \frac {camera.height.needed}{camera.height}
+$$
 
+$$
+rect.y = 0.5 + (rect.y - 0.5)\times\frac{camera.height.needed}{camera.height}
+$$
+
+then
 $$
 camera.orthographicSize = camera.height \times 0.5
 $$
 
-#### 3. Compute Position 
+#### 3. Compute Position
 
 Keep the picture above and the parameters offered in mind, and then continue:
 
@@ -97,13 +130,13 @@ camera.y = y_1 + deltaY
 $$
 
 $$
-camera.z = -distance
+camera.x = -distance
 $$
 
-Then for `camera.x`:
+Then for `camera.z`:
 
 $$
-camera.x = - (rect.x + 0.5 \times rect.width - 0.5) \times camera.width
+camera.z = - (rect.x + 0.5 \times rect.width - 0.5) \times camera.width
 $$
 
 Finally:
