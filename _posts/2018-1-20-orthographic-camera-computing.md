@@ -22,7 +22,7 @@ I’ve encountered a problem to adjust the position of orthographic camera for r
 
 See the picture below:
 
-![]({{ "/assets/img-orthographic-camera/1.jpg" | absolute_url }})
+![]({{ "/assets/img-orthographic-camera/1.JPG" | absolute_url }})
 
 #### 1. Get Bounding Box `bound`
 
@@ -39,19 +39,25 @@ So let's calucate the height of the view volume.
 Fortunately, the calucation doesn't need spatial transformation. All is done in global space, as we use orthographic camera and the proportianl value.
 
 According to the picture above, we can get $\alpha$ by the bounding box calulated from step 1. 
+
 $$
 \alpha = arctan(\frac{bound.height} {bound.depth})
 $$
+
 Then `d`:
+
 $$
 d = \frac {bound.height} {sin\alpha}
 $$
 
 Then the height of the object on screen, we call it view.height: 
+
 $$
 view.height = d \times sin(\alpha + \theta) = \frac {bound.height}{sin\alpha} \times sin(\alpha + \theta)
 $$
+
 So the height of camera view volume is:
+
 $$
 camera.height = \frac{view.height} {rect.height} = \frac {bound.height} {rect.height} \times \frac{sin(\alpha + \theta)} {sin\alpha}
 $$
@@ -69,6 +75,7 @@ camera.width.needed = \frac{bound.width}{rect.width}
 $$
 
 if `camera.width > camera.width.needed`, it means that actually more width is given than that the object needs, so we should change the actual proportional value of the object's width on screen:
+
 $$
 rect.width = rect.width \times \frac {camera.width.needed}{camera.width}
 $$
@@ -78,11 +85,13 @@ rect.x = 0.5 + (rect.x - 0.5)\times\frac{camera.width.needed}{camera.width}
 $$
 
 if `camera.width < camera.width.needed`, it means that the actual width of object's view exceeds the camera's view volume. So we need to extend the view volume:
+
 $$
 camera.width = camera.width.needed
 $$
 
 Let's save the old camera.height before computing the new camera.height:
+
 $$
 camera.height.needed = camera.height
 $$
@@ -92,6 +101,7 @@ camera.height = \frac{camera.width}{camera.aspect}
 $$
 
 Now that `camera.height > camera.height.needed`, we need to re-compute the actual proportional value of the object's height on screen, same as width above:
+
 $$
 rect.height = rect.height \times \frac {camera.height.needed}{camera.height}
 $$
@@ -101,6 +111,7 @@ rect.y = 0.5 + (rect.y - 0.5)\times\frac{camera.height.needed}{camera.height}
 $$
 
 then
+
 $$
 camera.orthographicSize = camera.height \times 0.5
 $$
