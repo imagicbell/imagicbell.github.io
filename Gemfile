@@ -28,3 +28,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem "jekyll-assets", group: :jekyll_plugins
+
+gem 'faraday', '~> 0.15.4'

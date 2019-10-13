@@ -71,3 +71,7 @@ Of course, the solution I got has some limitations, which does not have to be co
 ![]({{ "/assets/img-auto-draw-chain/9.jpg" | absolute_url }})
 
 The extra work is to give some specifications in calculations. I'm here only to give some inspirations. Or if you could figure out a more general way.  Please feel free to share and have fun!
+
+
+
+[Next blog]({% post_url 2018-6-10-chain-animation-on-wheels %}) will introduce the animation calculation of the chains.
