@@ -1,5 +1,5 @@
 ---
-title:  "Notes: Binary Heap"
+title:  "Algorithm Notes: Binary Heap"
 date:   2019-10-3 20:00:00 +0800
 categories: Algorithm
 ---
