@@ -19,7 +19,7 @@ email: sophieml1989@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Never give a limitation of what I can do.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://magicbell.beanstu.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://imagicbell.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: imagicbell
 repository: "imagicbell.github.io"
 
@@ -75,7 +75,7 @@ defaults:
 
 author:
   name: "Ling Mao"
-  uri: "http://magicbell.beanstu.io"
+  uri: "https://imagicbell.github.io/"
   email: "sophieml1989@gmail.com"
   bio: "Coding for front-end apps and Unity games."
   avatar: "/assets/images/avatar.png"
