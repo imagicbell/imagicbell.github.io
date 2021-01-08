@@ -12,6 +12,8 @@ When I was pregnant, my husband bought me a piano, because he wanted us and our 
 
 But I found it difficult to find a free app that teaches me how to play. Most of the sheet music that I love are in-app purchases. So I decided to make a simple app to help myself read sheet and play piano.
 
+The GitHub link is https://github.com/imagicbell/piano-app.
+
 ### A Glance
 
 ![]({{ "/assets/img-piano/1.jpg" | absolute_url }})
