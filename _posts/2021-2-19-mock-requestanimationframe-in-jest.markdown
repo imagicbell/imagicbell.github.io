@@ -73,4 +73,5 @@ act(() => {
 });
 ```
 
-The $100$ in `setTimeout` acts like the `deltaTime` between frames, and can be custom defined. 
+The `100` in `setTimeout` acts like the `deltaTime` between frames, and can be custom defined. 
+
