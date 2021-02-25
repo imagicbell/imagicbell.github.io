@@ -1,19 +1,19 @@
 const prod = process.env.NODE_ENV === "production";
-const basePath = '/imagicbell-website';
+const basePath = ""; 
 
 module.exports = prod ? 
 {
   basePath: basePath,
   images: {
     loader: 'imgix',
-    path: `https://imagicbell.github.io${basePath}/`,
+    path: basePath,  
   },
   env: {
-    baseUrl: `https://imagicbell.github.io${basePath}`,
+    basePath: basePath
   }
-} :
+} : 
 {
   env: {
-    baseUrl: ''
+    basePath: ''
   }
-}
+};
