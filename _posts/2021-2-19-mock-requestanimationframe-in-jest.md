@@ -1,12 +1,12 @@
 ---
 title:  "Mock requestAnimationFrame in Jest"
-date:   2021-2-19 10:00:00 +0800
+date:   "2021-02-19T10:00:00+08:00"
 categories: Front-End
 ---
 
 
 
-When I wrote test for my tiny [rhythm game](https://imagicbell.github.io/front-end/2021/01/07/rythm-game.html), I realized that all the browser based actions needed to be mocked, including `window.requestAnimationFrame`. I created a custom hook `useCanvas` which takes a `draw` function and renders the content under canvas every frame using `requestAnimationFrame`. I decided to write a test to test this functionality.
+When I wrote test for my tiny [rhythm game]({%POST_URL%}/2021-1-7-rythm-game), I realized that all the browser based actions needed to be mocked, including `window.requestAnimationFrame`. I created a custom hook `useCanvas` which takes a `draw` function and renders the content under canvas every frame using `requestAnimationFrame`. I decided to write a test to test this functionality.
 
 ```javascript
 export default function useCanvas(draw) {

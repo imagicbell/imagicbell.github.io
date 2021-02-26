@@ -1,6 +1,6 @@
 ---
 title:  "Algorithm Notes: KMP"
-date:   2019-9-26 20:00:00 +0800
+date:   "2019-09-26T20:00:00+08:00"
 categories: Algorithm
 ---
 

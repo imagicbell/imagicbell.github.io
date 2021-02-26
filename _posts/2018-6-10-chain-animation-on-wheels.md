@@ -1,14 +1,14 @@
 ---
 title:  "Automatic Chain's Animation On wheel Models"
-date:   2018-6-10 16:00:00 +0800
+date:   "2018-06-10T16:00:00+08:00"
 categories: Unity
 ---
 
 
 
-In [last blog]({% post_url 2018-6-7-auto-draw-chain-on-wheels %}), I introduced the construction of the chains on wheels. This blog will tell the animation calculations. The chain's animation is like this: 
+In [last blog]({%POST_URL%}/2018-6-7-auto-draw-chain-on-wheels), I introduced the construction of the chains on wheels. This blog will tell the animation calculations. The chain's animation is like this: 
 
-![]({{ "/assets/img-auto-draw-chain/10.gif" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/10.gif)
 
 We see that the chain can transform from spreading to enclosing smoothly. Of course, the reverse is supported. 
 
@@ -25,7 +25,7 @@ The detailed calculations are introduced below.
 
 ### Step1: Build Chain
 
-The construction of enclosed chain is introduced in [last blog]({% post_url 2018-6-7-auto-draw-chain-on-wheels %}). Now left the spreaded chain, which is much simpler.
+The construction of enclosed chain is introduced in [last blog]({%POST_URL%}/2018-6-7-auto-draw-chain-on-wheels). Now left the spreaded chain, which is much simpler.
 
 After we got the curve for the enclosed chain, we find the middle point, whose tangent is the tangent of all points on the spreading curve. Then the position of each point is calculated according to the tangent and the distance to the middle point.
 

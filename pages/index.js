@@ -42,7 +42,7 @@ export async function getStaticProps() {
     'slug',
     'categories'
   ])
-
+  // console.log(allPosts)
   return {
     props: { allPosts },
   }

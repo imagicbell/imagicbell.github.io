@@ -1,6 +1,6 @@
 ---
 title:  "Restric Object In Specified Scree Area Using Orthographic Camera"
-date:   2018-1-20 15:00:00 +0800
+date:   "2018-01-20T15:00:00+08:00"
 categories: Unity
 ---
 
@@ -22,7 +22,7 @@ I’ve encountered a problem to adjust the position of orthographic camera for r
 
 See the picture below:
 
-![]({{ "/assets/img-orthographic-camera/1.JPG" | absolute_url }})
+![](/blog/assets/img-orthographic-camera/1.JPG)
 
 #### 1. Get Bounding Box `bound`
 

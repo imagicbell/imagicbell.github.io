@@ -1,6 +1,6 @@
 ---
 title:  "Create A Classical Rythm Game With React Hooks and Tone.js"
-date:   2021-1-7 21:00:00 +0800
+date:   "2021-01-07T21:00:00+08:00"
 categories: Front-End
 ---
 
@@ -8,7 +8,7 @@ categories: Front-End
 
 Recently I've been obsessed with React Hooks, and then I came up with an idea to create a classical rythm game using Hooks and [Tone.js](https://github.com/Tonejs/Tone.js). This is how it looks:
 
-![]({{ "/assets/img-rythm-game/1.jpg" | absolute_url }})
+![](/blog/assets/img-rythm-game/1.jpg)
 
 Alongside the playing music, drops fall down and we hit the bottom circles to keep up with the rythm. There are several features:
 
@@ -16,7 +16,7 @@ Alongside the playing music, drops fall down and we hit the bottom circles to ke
 2. Left hand buttons(from left to right): **a**, **s**, **d**. Right hand buttons(from left to right): **j**, **k**, **l**. We can choose to open left, right, or both hand tracks.
 3. The music can be played, paused, resumed and stopped.
 
-The github link is https://github.com/imagicbell/A-Rythm-Game-Created-With-React-Hooks-And-Tonejs.
+[Github link](https://github.com/imagicbell/A-Rythm-Game-Created-With-React-Hooks-And-Tonejs).
 
 Below I will illustrate how I created this tiny game using React Hooks and Tone.js.
 
@@ -109,7 +109,7 @@ Originally, I used **Redux** to manage the states of the game objects, e.g. posi
 
 #### Why using Tone.js?
 
-Previously I created a simple [Piano App](https://imagicbell.github.io/front-end/2019/06/15/piano-app.html) using Tone.js. Tone.js provides optimized features to interact with music. In this rythm game, [Tone.Transport](https://tonejs.github.io/docs/Transport) gives a hand. It enables to synchronize music and schedule events along the timeline, which is perfectly what I need. 
+Previously I created a simple [Piano App]({%POST_URL%}/2019-6-15-piano-app) using Tone.js. Tone.js provides optimized features to interact with music. In this rythm game, [Tone.Transport](https://tonejs.github.io/docs/Transport) gives a hand. It enables to synchronize music and schedule events along the timeline, which is perfectly what I need. 
 
 The music synchronization:
 

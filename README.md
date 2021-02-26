@@ -8,4 +8,5 @@
    1. github-markdown-css
    2. ul, ol, list-style: none by tailwindcss
 4. markdown image url, remark-html -> showdown
+5. show math
 

@@ -1,15 +1,15 @@
 ---
 title:  "Google Blockly Reimplementation with Unity/C#(2)"
-date:   2017-10-14 12:00:00 +0800
-categories: Unity
+date:   "2017-10-14T12:00:00+08:00"
+categories: "Unity"
 ---
 
 ## Google Blockly Model
 
-核心Model模块完全参考Google Blockly。正如[前文框架图]({% post_url 2017-10-11-blockly-one %}#framework_design)所示，Blockly主要包括模型：`Workspace`,`Variable`, `Block`, `Connection`, `Input`, `Field`。
+核心Model模块完全参考Google Blockly。正如[前文框架图]({%POST_URL%}/2017-10-11-blockly-one#section-框架设计)所示，Blockly主要包括模型：`Workspace`,`Variable`, `Block`, `Connection`, `Input`, `Field`。
 
 * Workspace相当于一个容器，包含Blocks, Variables。
-  * 一个Workspace可以存储为一个<a id="workspace_xml_">Xml</a>文件，保留Blocks之间的连接关系，以及属性信息。反过来也可以从一个格式正确的Xml文件重建一个Workspace。
+  * 一个Workspace可以存储为一个<a id="workspace_xml">Xml</a>文件，保留Blocks之间的连接关系，以及属性信息。反过来也可以从一个格式正确的Xml文件重建一个Workspace。
   * Code Generator&Interpreter从遍历一个Workspace的顶层Block开始，根据Blocks之间的连接关系依次深度优先向下执行。
   * 一个Workspace在UI上显示为可供编辑Block的区域，其中还包含一个Toolbox，提供Block原型的容器。
 
@@ -87,7 +87,7 @@ categories: Unity
 * Input/Field，如[上例](#json_message)，以及对每个field, input属性、输入类型的描述；
 * Block Output Connection，或者Previous/Next Connection；
 * UI背景色；
-* <a id="json_special-define">特殊属性</a>；
+* <a id="json-special-define">特殊属性</a>；
 
 开发者可通过自定义Json描述，来定义一个新的Block。
 
@@ -95,11 +95,11 @@ categories: Unity
 
 ### <a id="mutation">Mutation特性</a>
 
-上文Json定义中提到了[特殊属性](#json_special_define)，其中Mutation就是一个，它提供了动态修改Block结构的功能。
+上文Json定义中提到了[特殊属性](#json-special-define)，其中Mutation就是一个，它提供了动态修改Block结构的功能。
 
 IF/ELSE就是一个典型的需要Mutation的例子：
 
-​	![初始结构]({{ "/assets/img-blockly/Mutator_IfElse_1.png" | absolute_url }}) => ![Mutate后结构]({{ "/assets/img-blockly/Mutator_IfElse_2.png" | absolute_url }})
+​	![初始结构](/blog/assets/img-blockly/Mutator_IfElse_1.png) => ![Mutate后结构](/blog/assets/img-blockly/Mutator_IfElse_2.png)
 
 用户在编辑时，只需要指定`else if`的个数，以及是否有`else`，Mutation根据这些变量重构Block结构。
 
@@ -109,7 +109,7 @@ IF/ELSE就是一个典型的需要Mutation的例子：
 
 下图定义了一个Swap(x, y)的函数，调用结果为将传入的x, y的值互换。
 
-![函数实现]({{ "/assets/img-blockly/Procedure_1.png" | absolute_url }})
+![函数实现](/blog/assets/img-blockly/Procedure_1.png)
 
 函数Block（Google Blockly称“Procedure”）分为两大类：
 

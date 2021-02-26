@@ -1,6 +1,6 @@
 ---
 title:  "Implement Undo/Redo With Mobx"
-date:   2018-10-07 19:00:00 +0800
+date:   "2018-10-07T19:00:00+08:00"
 categories: Front-End
 ---
 

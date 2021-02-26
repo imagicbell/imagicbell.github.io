@@ -1,6 +1,6 @@
 ---
 title:  "Algorithm Notes: Binary Heap"
-date:   2019-10-3 20:00:00 +0800
+date:   "2019-10-03T20:00:00+08:00"
 categories: Algorithm
 ---
 
@@ -18,7 +18,7 @@ It is represented as an array, where
   * `Arr[2*i+1]` returns its left child node;
   * `Arr[2*i+2]` returns its right child node;
 
-![]({{ "/assets/img-binary-heap/binaryheap.png" | absolute_url }})
+![](/blog/assets/img-binary-heap/binaryheap.png)
 
 
 
@@ -66,9 +66,9 @@ As we see, we extract a method called `Heapify`, which is a core function in bin
 
 The following illustrates an example of the process:
 
-![]({{ "/assets/img-binary-heap/0.png" | absolute_url }})		![]({{ "/assets/img-binary-heap/1.png" | absolute_url }})
+![](/blog/assets/img-binary-heap/0.png)		![](/blog/assets/img-binary-heap/1.png)
 
-![]({{ "/assets/img-binary-heap/2.png" | absolute_url }})		![]({{ "/assets/img-binary-heap/3.png" | absolute_url }})
+![](/blog/assets/img-binary-heap/2.png)		![](/blog/assets/img-binary-heap/3.png)
 
 The time complexity is $O(n)$.
 

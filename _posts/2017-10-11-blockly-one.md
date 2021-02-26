@@ -1,7 +1,7 @@
 ---
 title:  "Google Blockly Reimplementation With Unity/C#(1)"
-date:   2017-10-11 20:00:00 +0800
-categories: Unity
+date:   "2017-10-11T20:00:00+08:00"
+categories: "Unity"
 ---
 
 
@@ -28,15 +28,15 @@ Google Blockly现开发的有3个版本：
 
 ## Demo 展示
 
-![]({{ "/assets/img-blockly/Demo.png" | absolute_url }}) ![]({{ "/assets/img-blockly/DemoLog.png" | absolute_url }})
+![](/blog/assets/img-blockly/Demo.png) ![](/blog/assets/img-blockly/DemoLog.png)
 
 
 
-## <a id="framework_design">框架设计</a>
+## 框架设计
 
 框架分三个模块：Blockly Model、Code Generator & Interpreter、UI，原则是以**Model**为核心驱动，模块彼此独立，开发者可自定义后面两个模块。
 
-![Module]({{ "/assets/img-blockly/ModuleDesign.png" | absolute_url }})
+![Module](/blog/assets/img-blockly/ModuleDesign.png)
 
 
 

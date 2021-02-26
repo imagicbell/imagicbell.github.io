@@ -1,6 +1,6 @@
 ---
 title:  "Customize CSS Class In React-Bootstrap Under CSS-Modules"
-date:   2018-1-30 13:00:00 +0800
+date:   "2018-01-30T13:00:00+08:00"
 categories: Front-End
 ---
 
@@ -57,7 +57,7 @@ import styles from './home.css'
 ...
 ```
 
-![]({{ "/assets/img-css-classnames/css-module-name.png" | absolute_url }})
+![](/blog/assets/img-css-classnames/css-module-name.png)
 
 In webpack config, the <a id ="webpack-cssmodule">naming strategy</a> can be customized:
 

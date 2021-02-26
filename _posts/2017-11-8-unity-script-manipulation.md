@@ -1,7 +1,7 @@
 ---
 title:  "Serialization For Dynamically Created MonoBebavior Scripts"
-date:   2017-11-8 20:30:00 +0800
-categories: Unity
+date:   "2017-11-08T20:30:00+08:00"
+categories: "Unity"
 ---
 
 
@@ -36,7 +36,7 @@ Fortunately，强大的Unity完美的提供了解决方案：
 
 1. 有任意脚本改变时，Unity会自动编译；
 
-2. Unity Editor提供了一个定义回调的[方法 ](https://docs.unity3d.com/ScriptReference/Callbacks.DidReloadScripts.html):
+2. Unity Editor提供了一个定义回调的[方法](https://docs.unity3d.com/ScriptReference/Callbacks.DidReloadScripts.html):
 
    ```c#
    [UnityEditor.Callbacks.DidReloadScripts]

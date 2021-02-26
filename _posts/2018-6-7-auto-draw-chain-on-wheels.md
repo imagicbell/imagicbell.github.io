@@ -1,6 +1,6 @@
 ---
 title:  "Automatic Chain's Construction On wheel Models"
-date:   2018-6-7 16:00:00 +0800
+date:   "2018-06-07T16:00:00+08:00"
 categories: Unity
 ---
 
@@ -8,11 +8,11 @@ categories: Unity
 
 Rencently I did have fun with a project which I'd like to share. It is to construct a chain automatically on wheels. Like these:
 
-![]({{ "/assets/img-auto-draw-chain/1.png" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/1.png)
 
-![]({{ "/assets/img-auto-draw-chain/2.jpg" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/2.jpg)
 
-![]({{ "/assets/img-auto-draw-chain/3.jpg" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/3.jpg)
 
 
 
@@ -38,21 +38,21 @@ Inspired by a plugin called [SplineMesh](https://assetstore.unity.com/packages/t
 
 As for the situation of one wheel, this is quite straight forward. Given a circle's center, radius, and the up direction, calculate the sampled points on the circle.
 
-![]({{ "/assets/img-auto-draw-chain/4.jpg" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/4.jpg)
 
 For situations of multiple circles, we should first try to calculate the **tangent lines** between circles.
 
-![]({{ "/assets/img-auto-draw-chain/5.png" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/5.png)
 
 There are 4 tangent lines in total between 2 circles, but we only need the outer two.
 
 Here is my method to compute the tangent lines.
 
-![]({{ "/assets/img-auto-draw-chain/6.png" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/6.png)
 
-![]({{ "/assets/img-auto-draw-chain/7.jpg" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/7.jpg)
 
-![]({{ "/assets/img-auto-draw-chain/8.jpg" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/8.jpg)
 
 The other 3 tangent points are calculated likely.
 
@@ -68,10 +68,10 @@ One last problem is the situation that wheels are enclosed. Only 2 points out of
 
 Of course, the solution I got has some limitations, which does not have to be considered in our applications. Like this:
 
-![]({{ "/assets/img-auto-draw-chain/9.jpg" | absolute_url }})
+![](/blog/assets/img-auto-draw-chain/9.jpg)
 
 The extra work is to give some specifications in calculations. I'm here only to give some inspirations. Or if you could figure out a more general way.  Please feel free to share and have fun!
 
 
 
-[Next blog]({% post_url 2018-6-10-chain-animation-on-wheels %}) will introduce the animation calculation of the chains.
+[Next blog]({%POST_URL%}/2018-6-10-chain-animation-on-wheels) will introduce the animation calculation of the chains.

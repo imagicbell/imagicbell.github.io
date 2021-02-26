@@ -1,7 +1,7 @@
 ---
 title:  "Manipulate UGUI Image Mesh"
-date:   2017-12-1 17:00:00 +0800
-categories: Unity
+date:   "2017-12-01T17:00:00+08:00"
+categories: "Unity"
 ---
 
 
@@ -10,9 +10,9 @@ It is known that the `Image` component in Unity UI can draw a texture under canv
 
 The following are two cases of customizing shape and offset:
 
-![]({{ "/assets/img-uimage-manipulation/showcase1.png" | absolute_url }})
+![](/blog/assets/img-uimage-manipulation/showcase1.png)
 
-![]({{ "/assets/img-uimage-manipulation/showcase2.png" | absolute_url }})
+![](/blog/assets/img-uimage-manipulation/showcase2.png)
 
 *left: raw image; right: customized image*
 
@@ -24,7 +24,7 @@ Mesh is the key point. It carries the information of vertices, colors and uvs wh
 
 In Unity UI, class `Graphic` is the base class for all visual UI components, and it offers an virtual method `OnPopulateMesh` for customizing the mesh construction. A typical simple graphic mesh is contructed by composing a rectangle:
 
-![]({{ "/assets/img-uimage-manipulation/simple.png" | absolute_url }})
+![](/blog/assets/img-uimage-manipulation/simple.png)
 
 The code is like this:
 
@@ -45,11 +45,11 @@ vh.AddTriangle(2, 3, 0);
 
 Moreover, we can see the composition of a sliced image:
 
-![]({{ "/assets/img-uimage-manipulation/sliced.png" | absolute_url }})
+![](/blog/assets/img-uimage-manipulation/sliced.png)
 
 There are 9 rectangles, and each of them are constructed by calculating the real vertices' positions and the sliced border positions and inner/outer uvs.
 
-![]({{ "/assets/img-uimage-manipulation/slicedtex.png" | absolute_url }})
+![](/blog/assets/img-uimage-manipulation/slicedtex.png)
 
 The code is a bit long. You can check the source code which is opened if interested.
 

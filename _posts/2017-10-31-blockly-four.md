@@ -1,7 +1,7 @@
 ---
 title:  "Google Blockly Reimplementation with Unity/C#(4)"
-date:   2017-10-31 20:00:00 +0800
-categories: Unity
+date:   "2017-10-31T20:00:00+08:00"
+categories: "Unity"
 ---
 
 ## UGUI Design
@@ -22,7 +22,7 @@ categories: Unity
 
 首先，需要设计一套View Hierarchy，既能符合Block Model的结构，表现Blocks之间的Connection，又能结合UGUI Transform Hierarchy，实现动态Layout计算。
 
-回顾[讲解Block Model的章节]({% post_url 2017-10-14-blockly-two %}#block)中关于Block Hierarchy的介绍，可知Block包括Connections、Inputs，而Inputs包括Fields、Connections，Connections可以连接其他Blocks，这些元素均需在UI上体现出来。在此基础上，我们还增加了一个LineGroup，因为某些Block View需要将Inputs分布在多行，LineGroup是用来包裹一行的Inputs。因此，最终的<a id="view_hierarchy">View Hierarchy</a>如下：
+回顾[讲解Block Model的章节]({%POST_URL%}/2017-10-14-blockly-two#block)中关于Block Hierarchy的介绍，可知Block包括Connections、Inputs，而Inputs包括Fields、Connections，Connections可以连接其他Blocks，这些元素均需在UI上体现出来。在此基础上，我们还增加了一个LineGroup，因为某些Block View需要将Inputs分布在多行，LineGroup是用来包裹一行的Inputs。因此，最终的<a id="view-hierarchy">View Hierarchy</a>如下：
 
 ```
 hierarchy of view:
@@ -54,11 +54,11 @@ hierarchy of view:
 Hierarchy中的每一个元素，都是一个View，因此我们抽象了基类`BaseView`，它继承`MonoBehaviour`，管理了：
 
 * 链式结构：Parent, Childs, Previous, Next。
-* 自下而上的迭代式Layout Update，[详见这里](#)。
+* 自下而上的迭代式Layout Update，[详见这里](#layout-example1)。
 
 #### 子类Views类型
 
-依据[Hierarchy](#view_hierarchy)，设计了6个基本的View类型：
+依据[Hierarchy](#view-hierarchy)，设计了6个基本的View类型：
 
 `BlockView`, `ConnectionView`, `LineGroupView`, `InputView`,`FieldView`, `ConnectionInputView`
 
@@ -80,13 +80,13 @@ Hierarchy中的每一个元素，都是一个View，因此我们抽象了基类`
 
 为什么需要Dynamic Layout，它需要做什么？先看下面两个例子：
 
-<a id="layout_example1">例1</a>
+<a id="layout-example1">例1</a>
 
-![]({{ "/assets/img-blockly/Layout_1.png" | absolute_url }}) -> ![]({{ "/assets/img-blockly/Layout_2.png" | absolute_url }})
+![](/blog/assets/img-blockly/Layout_1.png) -> ![](/blog/assets/img-blockly/Layout_2.png)
 
-<a id="layout_example2">例2</a>
+<a id="layout-example2">例2</a>
 
-![]({{ "/assets/img-blockly/Layout_3.png" | absolute_url }}) -> ![]({{ "/assets/img-blockly/Layout_4.png" | absolute_url }})
+![](/blog/assets/img-blockly/Layout_3.png) -> ![](/blog/assets/img-blockly/Layout_4.png)
 
 可以看出：
 
@@ -97,7 +97,7 @@ Hierarchy中的每一个元素，都是一个View，因此我们抽象了基类`
 
 UGUI有一套Layout机制，是依赖于Transform Hierarchy，在每一个生命周期的Update之后统一计算的，先后不可控，因此无法根据View的依赖关系按照正确的顺序计算。
 
-什么是正确的顺序？四个字概括：自下而上。依赖已经建立好的[Hierarchy](#view_hierarchy)，先从最小的元素Fields开始，计算起始位置和大小，然后遍历Next，依次叠加大小来计算起始位置，然后Parent，迭代下去，直到结束。代码大致如下：
+什么是正确的顺序？四个字概括：自下而上。依赖已经建立好的[Hierarchy](#view-hierarchy)，先从最小的元素Fields开始，计算起始位置和大小，然后遍历Next，依次叠加大小来计算起始位置，然后Parent，迭代下去，直到结束。代码大致如下：
 
 ```c#
 Vector2 newSize = CalculateSize();
@@ -164,19 +164,19 @@ switch (Type)
 
 动态Layout之后，带来的就是底图的实时绘制，当然采用了九宫格的方式，但是简单的九宫格缩放不能满足需求，看这个：
 
-![]({{ "/assets/img-blockly/Layout_5.png" | absolute_url }})
+![](/blog/assets/img-blockly/Layout_5.png)
 
 而这里只用了一张原图：
 
-![]({{ "/assets/img-blockly/Layout_6.png" | absolute_url }})
+![](/blog/assets/img-blockly/Layout_6.png)
 
 当然颜色是自定义设置的，通过UGUI Image面板设置。
 
 其实方法很简单，参照UGUI中绘制`Image`的方法，重载`OnPopulateMesh(VertexHelper)`方法，按照九宫格的方式设置好顶点、uv，即可：
 
-![]({{ "/assets/img-blockly/Layout_7.png" | absolute_url }})  ->  ![]({{ "/assets/img-blockly/Layout_8.png" | absolute_url }})
+![](/blog/assets/img-blockly/Layout_7.png)  ->  ![](/blog/assets/img-blockly/Layout_8.png)
 
-上图用圆点标记的，是由外部Layout计算好之后的每一个LineGroup的顶点min, max。分析与代码详见[这篇]({% post_url 2017-12-1-unity-image-manipulation %})。
+上图用圆点标记的，是由外部Layout计算好之后的每一个LineGroup的顶点min, max。分析与代码详见[这篇]({%POST_URL%}/2017-12-1-unity-image-manipulation)。
 
 动态绘制底图还有一个好处是：不需要拼接图片，减少了资源量，并且避免了Draw Call的增加。
 
@@ -209,7 +209,7 @@ switch (Type)
 
 #### 重建Workspace
 
-Model层可以将Workspace保存为Xml文件，Xml文件可以再重建Workspace（见[前文]({% post_url 2017-10-14-blockly-two %}#workspace_xml)）。通过Workspace中Block Models，可以动态创建Block Views，并依据Connections，以及顶层Blocks的位置，实现自动Layout。
+Model层可以将Workspace保存为Xml文件，Xml文件可以再重建Workspace（见[前文]({%POST_URL%}/2017-10-14-blockly-two#workspace_xml)）。通过Workspace中Block Models，可以动态创建Block Views，并依据Connections，以及顶层Blocks的位置，实现自动Layout。
 
 #### 复制Block View
 
@@ -217,7 +217,7 @@ Workspace可以保存为Xml文件，当然是基于Block可以保存为一个Xml
 
 #### 变形Block View
 
-Block具有[Mutation特性]({% post_url 2017-10-14-blockly-two %}#mutation)，可以动态修改Block结构，因此动态生成Block View的功能为此提供了便利，可以动态增删Input Views。
+Block具有[Mutation特性]({%POST_URL%}/2017-10-14-blockly-two#mutation)，可以动态修改Block结构，因此动态生成Block View的功能为此提供了便利，可以动态增删Input Views。
 
 
 

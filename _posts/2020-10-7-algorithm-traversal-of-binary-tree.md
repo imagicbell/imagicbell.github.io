@@ -1,6 +1,6 @@
 ---
 title:  "Algorithm Notes: Traversal of Binary Tree"
-date:   2020-10-7 16:00:00 +0800
+date:   "2020-10-07T16:00:00+08:00"
 categories: Algorithm
 ---
 

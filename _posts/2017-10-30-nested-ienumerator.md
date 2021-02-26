@@ -1,6 +1,6 @@
 ---
-title:  "Unity协程：解决嵌套IEnumerator导致多一帧的问题"
-date:   2017-10-30 15:00:00 +0800
+title:  Unity协程：解决嵌套IEnumerator导致多一帧的问题
+date:   "2017-10-30T15:00:00+08:00"
 categories: Unity
 ---
 
@@ -51,7 +51,7 @@ IEnumerator Start ()
 
 Log输出
 
-![]({{ "/assets/img-coroutine/Log1.png" | absolute_url }})
+![](/blog/assets/img-coroutine/Log1.png)
 
 从Log中可以看出，当`Task2`里没有执行任何`yield return`时，返回到`Task1`时仍然等了一帧往下执行。
 
@@ -75,7 +75,7 @@ IEnumerator Task2()
 
 Log输出
 
-![]({{ "/assets/img-coroutine/Log2.png" | absolute_url }})
+![](/blog/assets/img-coroutine/Log2.png)
 
 并没有！无论迭代嵌套多少次`Task2`都没有叠加一帧，而只是第一次返回调用点放在了下一帧执行。
 
@@ -111,9 +111,9 @@ IEnumerator Task3()
 
 Log输出
 
-![]({{ "/assets/img-coroutine/Log3.png" | absolute_url }})
+![](/blog/assets/img-coroutine/Log3.png)
 
-可以看出，无论怎么深入、迭代嵌套下去，第一次返回调用点（yield return）总是在下一帧执行。这就带来了一个问题，当在最上层多次调用`yield return IEnumerator`，并且下层在嵌套调用时并没有真正执行`yield return Coroutine/YieldInstruction/null/value`时，就会多出不必要的帧，可能会导致与预期结果的偏差。我在[实现Blockly Code Runner]({% post_url 2017-10-22-blockly-three %})时遇到了这个问题，因为采用了协程的方式执行Block的解释方法，但是一部分Block的解释方法是没有yield return的，理应执行完后立即执行下一个Block的方法，实际上却等了一帧。
+可以看出，无论怎么深入、迭代嵌套下去，第一次返回调用点（yield return）总是在下一帧执行。这就带来了一个问题，当在最上层多次调用`yield return IEnumerator`，并且下层在嵌套调用时并没有真正执行`yield return Coroutine/YieldInstruction/null/value`时，就会多出不必要的帧，可能会导致与预期结果的偏差。我在[实现Blockly Code Runner]({%POST_URL%}/2017-10-22-blockly-three)时遇到了这个问题，因为采用了协程的方式执行Block的解释方法，但是一部分Block的解释方法是没有yield return的，理应执行完后立即执行下一个Block的方法，实际上却等了一帧。
 
 了解Coroutine执行原理的都知道，它是依赖于IEnumerator运作的，在Unity Monobehavior的一个生命周期中的某个时间点执行`MoveNext()`，返回`false`则结束。如果遇到嵌套IEnumerator调用，则应该是将其推入栈顶，先执行嵌套，等待执行完后推出。从这里可以推断出，推出后返回上一层IEnumerator后，需要在下一帧执行`MoveNext()`返回`false`才结束，因此才产生了这个问题。
 
@@ -154,6 +154,6 @@ IEnumerator SimulateCoroutine(IEnumerator itorFunc)
 
 第三个测试代码Log输出
 
-![]({{ "/assets/img-coroutine/Log4.png" | absolute_url }})
+![](/blog/assets/img-coroutine/Log4.png)
 
 可能我的理解和推导不完全正确，如果错误，欢迎指出～

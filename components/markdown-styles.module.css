@@ -25,3 +25,7 @@
 .markdown ul {
   list-style: disc;
 }
+
+.markdown img {
+  display: initial;
+}

@@ -1,6 +1,6 @@
 ---
 title:  "A Simple Piano App Developed By Tonejs"
-date:   2019-6-15 10:00:00 +0800
+date:   "2019-06-15T10:00:00+08:00"
 categories: Front-End
 ---
 
@@ -12,13 +12,13 @@ When I was pregnant, my husband bought me a piano, because he wanted us and our 
 
 But I found it difficult to find a free app that teaches me how to play. Most of the sheet music that I love are in-app purchases. So I decided to make a simple app to help myself read sheet and play piano.
 
-The GitHub link is https://github.com/imagicbell/piano-app.
+[GitHub link](https://github.com/imagicbell/piano-app).
 
 ### A Glance
 
-![]({{ "/assets/img-piano/1.jpg" | absolute_url }})
+![](/blog/assets/img-piano/1.jpg)
 
-![]({{ "/assets/img-piano/2.jpg" | absolute_url }})
+![](/blog/assets/img-piano/2.jpg)
 
 This is how it looks. 
 
@@ -137,13 +137,13 @@ switch(eventType) {
 
 But how to **step forward and backward**. Actually this frustrated me for a while, and at last I came out an idea that was not that perfect in my mind. Unfortunately, Tone didn't provide a straightforward solution. 
 
-![]({{ "/assets/img-piano/3.png" | absolute_url }})
+![](/blog/assets/img-piano/3.png)
 
 As we see from the above piece of music, commonly the piano sheet has at least two tracks. So I keep a record of the last played note in each track, so that I can get the next or the previous note of each track. 
 
 For implementing step forward, after I get the next note of each track, I sort both the start point and the end point of all the next notes on the timeline, as below:
 
-![]({{ "/assets/img-piano/4.jpg" | absolute_url }})
+![](/blog/assets/img-piano/4.jpg)
 
 Then set the `Tone.Transport.position` at the first start time, which is *track1_note1_start* here:
 

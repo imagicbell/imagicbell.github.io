@@ -1,6 +1,6 @@
 ---
 title:  "Algorithm Notes: Understanding of Binary Search"
-date:   2020-7-10 20:00:00 +0800
+date:   "2020-07-10T20:00:00+08:00"
 categories: Algorithm
 ---
 
