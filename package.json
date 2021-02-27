@@ -14,7 +14,8 @@
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "showdown-katex": "^0.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.1",

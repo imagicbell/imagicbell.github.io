@@ -57,13 +57,13 @@ Before I explain the core properties of the struct, some information should be t
 As we see in the gif at the begining of this article, that the animation is done from two sides towards middle. So first we need to identify the middle point, which is the same as decribed in **Step1**. Then the properties are calculated based on the middle point with slight difference. 
 
 1. **start/end posVec**
-   $$
+   ```latex
    startPosVec = startPosition - middlePosition
-   $$
+   ```
 
-   $$
+   ```latex
    endPosVec = endPosition - middlePosition
-   $$
+   ```
 
    We use the vector instead of position, because we use **Slerp** rather then simple **Lerp** of positions. The reason will be described in **Step3**. 
 
@@ -76,23 +76,23 @@ As we see in the gif at the begining of this article, that the animation is done
    Generally, the $rotAxis$ is the same as the forward direction of the plane composed by the wheel circles.   However, remember that the animations of left and right sides are opposite in its direction. So the $rotAxis$ of one side needs to be reversed. 
 
 4. **rotAngle**
-   $$
+   ```latex
    rotAngle = arccos(startTangent \bullet endTangent)
-   $$
+   ```
    As we all know that the **dot product** of two vectors can help get the angle between them. However, we should notice that the range of the result of $arccos$ is $[0, \pi]$. So when the actual angle is larger than $\pi$, we need to do 
-   $$
+   ```latex
    rotAngle = 360 - rotAngle
-   $$
+   ```
    to get the actual angle. But how can we know whether the angle is larger than $\pi$?
 
    We can use the **cross product**, which can get the normal vector of the plane containing the two vectors.
-   $$
+   ```latex
    normal = startTangent \times endTangent
-   $$
+   ```
    Then 
-   $$
+   ```latex
    dotProduct = normal \bullet rotAxis
-   $$
+   ```
    If $dotProduct < 0$, which means $normal$ is different direction to $rotAxis$, let's say the angle is larger than $\pi$.
 
 
@@ -102,9 +102,9 @@ As we see in the gif at the begining of this article, that the animation is done
 Finally, we do the interpolation of positions and rotations each frame to simulate the animation. 
 
 First we need to get the interpolation factor $t$ of the current frame.
-$$
+```latex
 t = \frac {timeElapsed}{totalTime}
-$$
+```
 
 1. **Rotation Interpolation**
 

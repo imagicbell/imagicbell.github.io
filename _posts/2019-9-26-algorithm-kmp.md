@@ -176,21 +176,21 @@ Two same characters `AB`, so `PMT[5] = 2`. Continue to move `i` and `j` to next.
 At last we get `PMT[6] = 0`. But why `j = PMT[j - 1]`?
 
 When we meet difference, we will move the string below to the right, which means to move `j` back. There are `j-1, j-2, …, 0`. How to decide which is the best move? Remember that the target of **PMT** is to find the longest same prefix and suffix. `PMT[j - 1]` is the longest length of the same prefix and suffix of `'w[0...j-1]'`. Let's say
-$$
+```latex
 w_{[0...PMT[j-1]-1]} = w_{[j-PMT[j-1]...j-1]}		
-$$
+```
 Moreover, through previous comparison we get
-$$
+```latex
 w_{[i-j...i-1]} = w_{[0...j-1]}
-$$
+```
 Combine this two equations, and we get
-$$
+```latex
 w_{[0...PMT[j-1]-1]} = w_{[i-PMT[j-1]...i-1]}
-$$
+```
 If we make `j = PMT[j-1]`, the above equation will turn into
-$$
+```latex
  w_{[0...j-1]} = w_{[i-j...i-1]}
-$$
+```
 which is the same as the second equation above! It means by making the shortest move of `j` back, we will continue to find the longest prefix and suffix with least comparison.
 
 ### Next Table

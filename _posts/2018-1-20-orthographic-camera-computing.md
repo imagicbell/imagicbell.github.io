@@ -40,115 +40,115 @@ Fortunately, the calucation doesn't need spatial transformation. All is done in 
 
 According to the picture above, we can get $\alpha$ by the bounding box calulated from step 1. 
 
-$$
+```latex
 \alpha = arctan(\frac{bound.height} {bound.depth})
-$$
+```
 
 Then `d`:
 
-$$
+```latex
 d = \frac {bound.height} {sin\alpha}
-$$
+```
 
 Then the height of the object on screen, we call it view.height: 
 
-$$
+```latex
 view.height = d \times sin(\alpha + \theta) = \frac {bound.height}{sin\alpha} \times sin(\alpha + \theta)
-$$
+```
 
 So the height of camera view volume is:
 
-$$
+```latex
 camera.height = \frac{view.height} {rect.height} = \frac {bound.height} {rect.height} \times \frac{sin(\alpha + \theta)} {sin\alpha}
-$$
+```
 
 Remember in *Prerequisite 2*, the `rect` is defined with the proportional value relative to the screen.
 
 However, that's not enough. We should ensure the aspect ratio, and the bounding of object's view not exceeding the view volume. So we calculate the width of camera view volume: 
 
-$$
+```latex
 camera.width = camera.height \times camera.aspect
-$$
+```
 
-$$
+```latex
 camera.width.needed = \frac{bound.width}{rect.width}
-$$
+```
 
 if `camera.width > camera.width.needed`, it means that actually more width is given than that the object needs, so we should change the actual proportional value of the object's width on screen:
 
-$$
+```latex
 rect.width = rect.width \times \frac {camera.width.needed}{camera.width}
-$$
+```
 
-$$
+```latex
 rect.x = 0.5 + (rect.x - 0.5)\times\frac{camera.width.needed}{camera.width}
-$$
+```
 
 if `camera.width < camera.width.needed`, it means that the actual width of object's view exceeds the camera's view volume. So we need to extend the view volume:
 
-$$
+```latex
 camera.width = camera.width.needed
-$$
+```
 
 Let's save the old camera.height before computing the new camera.height:
 
-$$
+```latex
 camera.height.needed = camera.height
-$$
+```
 
-$$
+```latex
 camera.height = \frac{camera.width}{camera.aspect}
-$$
+```
 
 Now that `camera.height > camera.height.needed`, we need to re-compute the actual proportional value of the object's height on screen, same as width above:
 
-$$
+```latex
 rect.height = rect.height \times \frac {camera.height.needed}{camera.height}
-$$
+```
 
-$$
+```latex
 rect.y = 0.5 + (rect.y - 0.5)\times\frac{camera.height.needed}{camera.height}
-$$
+```
 
 then
 
-$$
+```latex
 camera.orthographicSize = camera.height \times 0.5
-$$
+```
 
 #### 3. Compute Position
 
 Keep the picture above and the parameters offered in mind, and then continue:
 
-$$
+```latex
 d_1 = camera.height \times (rect.y+rect.height-0.5)
-$$
+```
 
-$$
+```latex
 deltaX = d_1 \times sin\theta
-$$
+```
 
-$$
+```latex
 deltaY = d_1 \times cos\theta
-$$
+```
 
-$$
+```latex
 y_1 = (distance - 0.5 \times bound.depth + deltaX) \times tan\theta
-$$
+```
 
-$$
+```latex
 camera.y = y_1 + deltaY
-$$
+```
 
-$$
+```latex
 camera.x = -distance
-$$
+```
 
 Then for `camera.z`:
 
-$$
+```latex
 camera.z = - (rect.x + 0.5 \times rect.width - 0.5) \times camera.width
-$$
+```
 
 Finally:
 
