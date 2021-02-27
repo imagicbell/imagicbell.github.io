@@ -29,3 +29,7 @@
 .markdown img {
   display: initial;
 }
+
+.markdown table th {
+  background-color: #f6f8fa;
+}

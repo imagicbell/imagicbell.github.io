@@ -10,3 +10,10 @@
 4. markdown image url, remark-html -> showdown
 5. show math
 
+
+
+website-content:
+1. homepage: show myself, contact link.
+2. resume
+3. blog
+4. certificates
