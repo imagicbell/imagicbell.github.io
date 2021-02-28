@@ -11,6 +11,7 @@
 5. show math
 
 ### blog
+* add ogImage, description
 * next-previous page.
 * discuss
 * blog list
@@ -25,4 +26,4 @@ website-content:
 
 
 ### website
-* meta, SEO (ogImage, description)
+* meta, SEO 
