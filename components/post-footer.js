@@ -1,30 +1,38 @@
 import Link from 'next/link'
 
-export default function PostFooter({ post, morePosts }) {
+function PostNav({ post, morePosts }) {
 	let index = morePosts.findIndex(p => p.slug === post.slug);
 	let previous = index === morePosts.length-1 ? null : morePosts[index+1]; 
 	let next = index === 0 ? null : morePosts[index-1];
 
 	return (
-		<>
+		<div className="flex leading-6 font-medium text-lg">
 			{
-				previous ? (
+				previous && 
 					<Link href={`/posts/${encodeURIComponent(previous.slug)}`}>
-						<a>Previous</a>
+						<a className="flex mr-8 transition-colors duration-200 hover:text-gray-500">
+							<span aria-hidden className="mr-2">←</span>
+							Previous Post
+						</a>
 					</Link>
-				) : (
-					<a aria-disabled>Previous</a>
-				)
 			}
 			{
-				next ? (
+				next &&
 					<Link href={`/posts/${encodeURIComponent(next.slug)}`}>
-						<a>Next</a>
+						<a className="flex text-right ml-auto transition-colors duration-200 hover:text-gray-500">
+							Next Post
+							<span aria-hidden className="ml-2">→</span>
+						</a>
 					</Link>
-				) : (
-					<a aria-disabled>Next</a>
-				)
 			}
+		</div>
+	)
+}
+
+export default function PostFooter({ post, morePosts }) {
+	return (
+		<>
+			<PostNav post={post} morePosts={morePosts} />
 		</>
 	)
 }
