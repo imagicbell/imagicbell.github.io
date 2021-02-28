@@ -26,14 +26,19 @@ export default function Post({ post, morePosts }) {
           <>
             <article className="mb-32">
               <Head>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossOrigin="anonymous"></link>
-                <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossOrigin="anonymous"></script>
                 <title>{post.title}</title>
                 { post.description && <meta name="description" content={post.description}/> }
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={post.title} />
-                { post.description && <meta name="og:description" content={post.description}/> }
+                <meta property="og:url" content={router.asPath} />
+                { post.description && <meta property="og:description" content={post.description}/> }
                 { post.ogImage && <meta property="og:image" content={post.ogImage} /> }
+                <meta name="twitter:title" content={post.title} />
+                { post.description && <meta name="twitter:description" content={post.description} /> }
+                { post.ogImage && <meta name="twitter:image" content={post.ogImage} /> }
+
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossOrigin="anonymous"></link>
+                <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossOrigin="anonymous"></script>
               </Head>
               <PostHeader
                 title={post.title}
