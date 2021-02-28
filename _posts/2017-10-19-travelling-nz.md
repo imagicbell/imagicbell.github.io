@@ -3,6 +3,7 @@ title:  "旅行-新西兰"
 date:   "2017-10-19T20:00:00+08:00"
 categories: "Travel"
 description: A self-driving travel experience in New Zealand. 
+ogImage: /blog/assets/img-travelling-nz/NZ1.png
 ---
 
 

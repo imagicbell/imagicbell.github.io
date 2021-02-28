@@ -2,6 +2,7 @@
 title:  "Google Blockly Reimplementation with Unity/C#(3)"
 date:   "2017-10-22T16:00:00+08:00"
 categories: "Unity"
+ogImage: /blog/assets/img-blockly/Demo.png
 ---
 
 ## Code Generator, Interpreter and Runner
@@ -56,7 +57,7 @@ protected override IEnumerator Execute(Block block)
 
 2. Block的解释方法是类方法，因为需要保存数据、状态，也便于复杂Block解释程序的扩展。
 
-3. 嵌套调用需要返回执行结果数据的Block的解释方法时，使用了`CustomeEnumerator`类，它继承自IEnumerator，并且可以携带数据。
+3. 嵌套调用需要返回执行结果数据的Block的解释方法时，使用了`CustomEnumerator`类，它继承自IEnumerator，并且可以携带数据。
 
    ```c#
    public class CustomEnumerator : IEnumerator
@@ -88,7 +89,7 @@ protected override IEnumerator Execute(Block block)
    }
    ```
 
-   以上for-loop block的解释代码中，当`TIMES`是另一个Block的输出时，可以通过`CustomeEnumerator`来异步获取：
+   以上for-loop block的解释代码中，当`TIMES`是另一个Block的输出时，可以通过`CustomEnumerator`来异步获取：
 
    ```c#
    protected override IEnumerator Execute(Block block)

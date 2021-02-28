@@ -2,6 +2,7 @@
 title:  "Create A Classical Rythm Game With React Hooks and Tone.js"
 date:   "2021-01-07T21:00:00+08:00"
 categories: Front-End
+ogImage: /blog/assets/img-rythm-game/1.jpg
 ---
 
 

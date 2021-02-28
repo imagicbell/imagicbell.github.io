@@ -3,6 +3,7 @@ title:  "Restrict Object In Specified Screen Area Using Orthographic Camera"
 date:   "2018-01-20T15:00:00+08:00"
 categories: Unity
 description: An algorithm to make objects displayed in a defined rectangle area on screen.
+ogImage: /blog/assets/img-orthographic-camera/1.JPG
 ---
 
 
