@@ -2,6 +2,7 @@
 title:  "A Simple Piano App Developed By Tonejs"
 date:   "2019-06-15T10:00:00+08:00"
 categories: Front-End
+description: Use React and Tonejs to develop a simple piano app.
 ---
 
 

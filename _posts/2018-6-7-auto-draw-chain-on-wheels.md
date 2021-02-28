@@ -2,6 +2,7 @@
 title:  "Automatic Chain's Construction On wheel Models"
 date:   "2018-06-07T16:00:00+08:00"
 categories: Unity
+description: An algorithm to construct the chains around one or more wheels from the very basic small parts in Unity.
 ---
 
 

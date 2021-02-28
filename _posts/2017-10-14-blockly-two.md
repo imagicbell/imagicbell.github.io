@@ -59,10 +59,10 @@ categories: "Unity"
     "message0": "%1 %2 %{BKY_LISTS_SPLIT_WITH_DELIMITER} %3"
     ```
 
-    * %1: field_dropdown
-    * %2: input_value
-    * %{BKY_LISTS_SPLIT_WITH_DELIMITER}: 多语言的key
-    * %3: input_value
+    * `%1`: field_dropdown
+    * `%2`: input_value
+    * `%{BKY_LISTS_SPLIT_WITH_DELIMITER}`: 多语言的key
+    * `%3`: input_value
 
     因此该Block有两个Input:
 

@@ -2,6 +2,7 @@
 title:  Unity协程：解决嵌套IEnumerator导致多一帧的问题
 date:   "2017-10-30T15:00:00+08:00"
 categories: Unity
+description: A solution to the problem that nested IEnumerator will cause Unity Couroutine to run one more frame.
 ---
 
 

@@ -2,6 +2,7 @@
 title:  "Manipulate UGUI Image Mesh"
 date:   "2017-12-01T17:00:00+08:00"
 categories: "Unity"
+description: Override the Mesh implementation('OnPopulateMesh' method) in UnityEngine.UI.Image to manipulate customized images.
 ---
 
 

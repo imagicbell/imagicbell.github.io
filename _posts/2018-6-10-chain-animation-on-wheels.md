@@ -2,6 +2,7 @@
 title:  "Automatic Chain's Animation On wheel Models"
 date:   "2018-06-10T16:00:00+08:00"
 categories: Unity
+description: An algorithm to calculate the animation of the chains around one or more wheels.
 ---
 
 

@@ -2,6 +2,7 @@
 title:  "怀孕生娃技术贴"
 date:   "2019-08-22T21:00:00+08:00"
 categories: Others
+description: A long story to share and keep memory of my pregnancy and baby delivery.
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-title:  "Implement Undo/Redo With Mobx"
+title:  "Implement Undo/Redo With Mobx In React"
 date:   "2018-10-07T19:00:00+08:00"
 categories: Front-End
 ---
