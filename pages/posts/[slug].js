@@ -11,6 +11,27 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 
+function HeadMeta({ post }) {
+  return (
+    <Head>
+      <title>{post.title}</title>
+      { post.description && <meta name="description" content={post.description}/> }
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={post.title} />
+      <meta property="og:url" content={`/posts/${post.slug}`} />
+      { post.description && <meta property="og:description" content={post.description}/> }
+      { post.ogImage && <meta property="og:image" content={post.ogImage} /> }
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={post.title} />
+      { post.description && <meta name="twitter:description" content={post.description} /> }
+      { post.ogImage && <meta name="twitter:image" content={post.ogImage} /> }
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossOrigin="anonymous"></link>
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossOrigin="anonymous"></script>
+    </Head>
+  )
+}
+
 export default function Post({ post, morePosts }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
@@ -23,30 +44,18 @@ export default function Post({ post, morePosts }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
-            <article className="mb-32">
-              <Head>
-                <title>{post.title}</title>
-                { post.description && <meta name="description" content={post.description}/> }
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={post.title} />
-                <meta property="og:url" content={router.asPath} />
-                { post.description && <meta property="og:description" content={post.description}/> }
-                { post.ogImage && <meta property="og:image" content={post.ogImage} /> }
-                <meta name="twitter:title" content={post.title} />
-                { post.description && <meta name="twitter:description" content={post.description} /> }
-                { post.ogImage && <meta name="twitter:image" content={post.ogImage} /> }
-
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossOrigin="anonymous"></link>
-                <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossOrigin="anonymous"></script>
-              </Head>
-              <PostHeader
-                title={post.title}
-                date={post.date}
-              />
-              <PostBody content={post.content} />
-            </article>
-            <PostFooter post={post} morePosts={morePosts} />
+          <> 
+            <HeadMeta post={post} />
+            <div className="max-w-3xl mx-auto">
+              <article className="mb-20">
+                <PostHeader
+                  title={post.title}
+                  date={post.date}
+                />
+                <PostBody content={post.content} />
+              </article>
+              <PostFooter post={post} morePosts={morePosts} />
+            </div>
           </>
         )}
       </Container>

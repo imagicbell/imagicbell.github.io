@@ -9,11 +9,13 @@ module.exports = prod ?
     path: basePath,  
   },
   env: {
-    basePath: basePath
+    basePath: basePath,
+    domain: "",
   }
 } : 
 {
   env: {
-    basePath: ''
+    basePath: '',
+    domain: "http://localhost:3000"
   }
 };

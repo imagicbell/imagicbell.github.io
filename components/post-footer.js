@@ -1,4 +1,11 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { 
+	FacebookShareButton, FacebookIcon,
+	TwitterShareButton, TwitterIcon,
+	LinkedinShareButton, LinkedinIcon,
+	WeiboShareButton, WeiboIcon
+} from 'react-share';
 
 function PostNav({ post, morePosts }) {
 	let index = morePosts.findIndex(p => p.slug === post.slug);
@@ -29,10 +36,41 @@ function PostNav({ post, morePosts }) {
 	)
 }
 
+function PostShare({ post }) {
+	const shareUrl = `${process.env.domain}${process.env.basePath}/posts/${post.slug}`;
+	const size = 40;
+	return (
+		<div className="flex leading-6 justify-center">
+			<FacebookShareButton className="mr-3 ml-3" url={shareUrl} quote={post.title} >
+				<FacebookIcon size={size} round />
+			</FacebookShareButton>
+			<TwitterShareButton className="mr-3 ml-3" url={shareUrl} title={post.title} >
+				<TwitterIcon size={size} round />
+			</TwitterShareButton>
+			<LinkedinShareButton className="mr-3 ml-3" url={shareUrl} >
+				<LinkedinIcon size={size} round />
+			</LinkedinShareButton>
+			<WeiboShareButton className="mr-3 ml-3" url={shareUrl} title={post.title} image={post.ogImage && `${process.env.domain}${process.env.basePath}${post.ogImage}`}>
+				<WeiboIcon size={size} round />
+			</WeiboShareButton>
+		</div>
+	)
+}	
+
+function Section({ children }) {
+	return (
+		<div className="">
+			<hr className="border-gray-200 mt-6 mb-6"/>
+			{ children }
+		</div>
+	)
+}
+
 export default function PostFooter({ post, morePosts }) {
 	return (
 		<>
-			<PostNav post={post} morePosts={morePosts} />
+			<Section><PostShare post={post} /></Section>
+			<Section><PostNav post={post} morePosts={morePosts} /></Section>
 		</>
 	)
 }
