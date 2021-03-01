@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { DiscussionEmbed } from 'disqus-react';
 import { 
 	FacebookShareButton, FacebookIcon,
 	TwitterShareButton, TwitterIcon,
@@ -57,6 +58,22 @@ function PostShare({ post }) {
 	)
 }	
 
+function PostDisqus({ post }) {
+	return (
+		<DiscussionEmbed
+			shortname='https-imagicbell-github-io'
+			config={
+				{
+						url: `/post/${post.slug}`,
+						identifier: post.slug,
+						title: post.title,
+						language: 'en' 
+				}
+			}
+		/>
+	)
+}
+
 function Section({ children }) {
 	return (
 		<div className="">
@@ -71,6 +88,7 @@ export default function PostFooter({ post, morePosts }) {
 		<>
 			<Section><PostShare post={post} /></Section>
 			<Section><PostNav post={post} morePosts={morePosts} /></Section>
+			<Section><PostDisqus post={post} /></Section>
 		</>
 	)
 }
