@@ -74,6 +74,10 @@ function PostDisqus({ post }) {
 	)
 }
 
+function PostMore({ morePosts }) {
+
+}
+
 function Section({ children }) {
 	return (
 		<div className="">
@@ -85,10 +89,16 @@ function Section({ children }) {
 
 export default function PostFooter({ post, morePosts }) {
 	return (
-		<>
-			<Section><PostShare post={post} /></Section>
-			<Section><PostNav post={post} morePosts={morePosts} /></Section>
-			<Section><PostDisqus post={post} /></Section>
-		</>
+		<div>
+			<div className="max-w-3xl mx-auto">
+				<Section><PostShare post={post} /></Section>
+				<Section><PostNav post={post} morePosts={morePosts} /></Section>
+				<Section><PostDisqus post={post} /></Section>
+			</div>
+			<div className="max-w-5xl mx-auto">
+
+			</div>
+		</div>
+		
 	)
 }

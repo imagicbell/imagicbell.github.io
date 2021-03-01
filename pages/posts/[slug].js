@@ -46,7 +46,7 @@ export default function Post({ post, morePosts }) {
         ) : (
           <> 
             <HeadMeta post={post} />
-            <div className="max-w-3xl mx-auto">
+            <div className="mx-auto">
               <article className="mb-20">
                 <PostHeader
                   title={post.title}
