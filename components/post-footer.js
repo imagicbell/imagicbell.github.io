@@ -7,17 +7,14 @@ import {
 	LinkedinShareButton, LinkedinIcon,
 	WeiboShareButton, WeiboIcon
 } from 'react-share';
+import PostCard from './post-card';
 
-function PostNav({ post, morePosts }) {
-	let index = morePosts.findIndex(p => p.slug === post.slug);
-	let previous = index === morePosts.length-1 ? null : morePosts[index+1]; 
-	let next = index === 0 ? null : morePosts[index-1];
-
+function PostNav({ postNav }) {
 	return (
 		<div className="flex leading-6 font-medium text-lg">
 			{
-				previous && 
-					<Link href={`/posts/${encodeURIComponent(previous.slug)}`}>
+				postNav.previous && 
+					<Link href={postNav.previous}>
 						<a className="flex mr-8 transition-colors duration-200 hover:text-gray-500">
 							<span aria-hidden className="mr-2">←</span>
 							Previous Post
@@ -25,8 +22,8 @@ function PostNav({ post, morePosts }) {
 					</Link>
 			}
 			{
-				next &&
-					<Link href={`/posts/${encodeURIComponent(next.slug)}`}>
+				postNav.next &&
+					<Link href={postNav.next}>
 						<a className="flex text-right ml-auto transition-colors duration-200 hover:text-gray-500">
 							Next Post
 							<span aria-hidden className="ml-2">→</span>
@@ -64,7 +61,7 @@ function PostDisqus({ post }) {
 			shortname='https-imagicbell-github-io'
 			config={
 				{
-						url: `/post/${post.slug}`,
+						url: `/posts/${post.slug}`,
 						identifier: post.slug,
 						title: post.title,
 						language: 'en' 
@@ -75,28 +72,39 @@ function PostDisqus({ post }) {
 }
 
 function PostMore({ morePosts }) {
-
+	return (
+		<div>
+			<h2 className="text-xl font-medium leading-tight md:leading-none mb-6 text-center">MORE FROM THE BLOG</h2>
+			<div className="grid grid-flow-row grid-cols-2 grid-rows-2 lg:grid-cols-4 gap-4">
+				{ 
+					morePosts.map(post => (
+						<PostCard key={post.slug} post={post} />
+					)) 
+				}
+			</div>
+		</div>
+	)
 }
 
 function Section({ children }) {
 	return (
-		<div className="">
+		<div>
 			<hr className="border-gray-200 mt-6 mb-6"/>
 			{ children }
 		</div>
 	)
 }
 
-export default function PostFooter({ post, morePosts }) {
+export default function PostFooter({ post, postNav, morePosts }) {
 	return (
 		<div>
 			<div className="max-w-3xl mx-auto">
 				<Section><PostShare post={post} /></Section>
-				<Section><PostNav post={post} morePosts={morePosts} /></Section>
+				<Section><PostNav postNav={postNav} /></Section>
 				<Section><PostDisqus post={post} /></Section>
 			</div>
 			<div className="max-w-5xl mx-auto">
-
+				<Section><PostMore morePosts={morePosts} /></Section>
 			</div>
 		</div>
 		

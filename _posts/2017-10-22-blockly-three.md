@@ -3,6 +3,7 @@ title:  "Google Blockly Reimplementation with Unity/C#(3)"
 date:   "2017-10-22T16:00:00+08:00"
 categories: "Unity"
 ogImage: /blog/assets/img-blockly/Demo.png
+locale: cn
 ---
 
 ## Code Generator, Interpreter and Runner

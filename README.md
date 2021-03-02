@@ -9,11 +9,13 @@
    2. ul, ol, list-style: none by tailwindcss
 4. markdown image url, remark-html -> showdown
 5. show math
+6. unified, remark-parse to extract abstract from markdown files. Extract 'text' from markdown
 
 ### blog
 * add ogImage, description
 * next-previous page.
 * discuss
+* more blogs
 * blog list
 * blog category
 

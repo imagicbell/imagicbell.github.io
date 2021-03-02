@@ -2,6 +2,7 @@
 title:  "Serialization For Dynamically Created MonoBebavior Scripts"
 date:   "2017-11-08T20:30:00+08:00"
 categories: "Unity"
+locale: cn
 ---
 
 

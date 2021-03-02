@@ -3,6 +3,7 @@ title:  "微信小程序尝试"
 date:   "2019-04-29T10:00:00+08:00"
 categories: Front-End
 description: Some tiny projects built in Wechat Mini Program.
+locale: cn
 ---
 
 

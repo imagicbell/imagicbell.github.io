@@ -6,10 +6,11 @@ import PostBody from '../../components/post-body'
 import PostFooter from '../../components/post-footer'
 import Header from '../../components/header'
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
+import { getPostBySlug, getAllPosts, extractPostAbstract } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
+import { MORE_POST_NUM, ABSTRACT_LENGTH } from '../../lib/constants'
 
 function HeadMeta({ post }) {
   return (
@@ -32,7 +33,7 @@ function HeadMeta({ post }) {
   )
 }
 
-export default function Post({ post, morePosts }) {
+export default function Post({ post, postNav, morePosts }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -54,7 +55,7 @@ export default function Post({ post, morePosts }) {
                 />
                 <PostBody content={post.content} />
               </article>
-              <PostFooter post={post} morePosts={morePosts} />
+              <PostFooter post={post} postNav={postNav} morePosts={morePosts} />
             </div>
           </>
         )}
@@ -70,19 +71,57 @@ export async function getStaticProps({ params }) {
     'slug',
     'description',
     'ogImage',
+    'abstract',
+    'categories',
     'content',
-  ])
-  const content = await markdownToHtml(post.content || '')
+  ]);
+  const postContent = await markdownToHtml(post.content || '')
 
-  const allPosts = getAllPosts(['slug', 'date']);
+  const allPosts = getAllPosts(['slug', 'date', 'categories']);
+  let index = allPosts.findIndex(p => p.slug === post.slug);
+	let previous = index === allPosts.length-1 ? null : allPosts[index+1]; 
+	let next = index === 0 ? null : allPosts[index-1];
+  
+  let morePosts = allPosts.filter(p => p.slug !== post.slug && p.categories.find(cat => post.categories.includes(cat)))
+                          .slice(0, MORE_POST_NUM);
+  index = 0;
+  while (index < allPosts.length && morePosts.length < MORE_POST_NUM) {
+    while(index < allPosts.length && (allPosts[index].slug === post.slug || morePosts.find(p => p.slug === allPosts[index].slug))) {
+      index++;
+    }
+    if (index >= allPosts.length) {
+      break;
+    }
+    morePosts.push(allPosts[index]);
+  }
+  morePosts = await Promise.all(morePosts.map(async p => {
+    let detailPost = getPostBySlug(p.slug, [
+      'slug',
+      'title',
+      'date',
+      'locale',
+      'ogImage',
+      'abstract',
+      'content',
+    ]);
+    if (detailPost.abstract === undefined) {
+      detailPost.abstract = extractPostAbstract(detailPost);
+    }
+    delete detailPost.content;
+    return detailPost;
+  }));
 
   return {
     props: {
       post: {
         ...post,
-        content,
+        content: postContent,
       },
-      morePosts: allPosts
+      postNav: {
+        previous: previous && `/posts/${encodeURIComponent(previous.slug)}`,
+        next: next && `/posts/${encodeURIComponent(next.slug)}`
+      },
+      morePosts,
     },
   }
 }

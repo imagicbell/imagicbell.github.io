@@ -1,13 +1,9 @@
-import 'github-markdown-css/github-markdown.css';
-import markdownStyles from './markdown-styles.module.css';
+import MarkdownContent from './markdown-content';
 
 export default function PostBody({ content }) {
   return (
     <div className="max-w-3xl mx-auto">
-      <div
-        className={`markdown-body ${markdownStyles.markdown}`}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <MarkdownContent content={content}/>
     </div>
   )
 }
