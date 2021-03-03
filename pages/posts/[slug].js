@@ -10,7 +10,7 @@ import { getPostBySlug, getAllPosts, extractPostAbstract } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
-import { MORE_POST_NUM, ABSTRACT_LENGTH } from '../../lib/constants'
+import { MORE_POST_NUM, ABSTRACT_LENGTH_MORE_POST, ABSTRACT_LENGTH_CN_MORE_POST } from '../../lib/constants'
 
 function HeadMeta({ post }) {
   return (
@@ -71,7 +71,6 @@ export async function getStaticProps({ params }) {
     'slug',
     'description',
     'ogImage',
-    'abstract',
     'categories',
     'content',
   ]);
@@ -94,7 +93,7 @@ export async function getStaticProps({ params }) {
     }
     morePosts.push(allPosts[index]);
   }
-  morePosts = await Promise.all(morePosts.map(async p => {
+  morePosts = morePosts.map(p => {
     let detailPost = getPostBySlug(p.slug, [
       'slug',
       'title',
@@ -105,11 +104,11 @@ export async function getStaticProps({ params }) {
       'content',
     ]);
     if (detailPost.abstract === undefined) {
-      detailPost.abstract = extractPostAbstract(detailPost);
+      detailPost.abstract = extractPostAbstract(detailPost, { en: ABSTRACT_LENGTH_MORE_POST, cn: ABSTRACT_LENGTH_CN_MORE_POST });
     }
     delete detailPost.content;
     return detailPost;
-  }));
+  });
 
   return {
     props: {
