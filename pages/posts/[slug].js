@@ -10,7 +10,7 @@ import { getPostBySlug, getAllPosts, extractPostAbstract } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
-import { MORE_POST_NUM, ABSTRACT_LENGTH_MORE_POST, ABSTRACT_LENGTH_CN_MORE_POST } from '../../lib/constants'
+import { MORE_POST_NUM, ABSTRACT_LENGTH_CARD, ABSTRACT_LENGTH_CN_CARD } from '../../lib/constants'
 
 function HeadMeta({ post }) {
   return (
@@ -104,7 +104,7 @@ export async function getStaticProps({ params }) {
       'content',
     ]);
     if (detailPost.abstract === undefined) {
-      detailPost.abstract = extractPostAbstract(detailPost, { en: ABSTRACT_LENGTH_MORE_POST, cn: ABSTRACT_LENGTH_CN_MORE_POST });
+      detailPost.abstract = extractPostAbstract(detailPost, { en: ABSTRACT_LENGTH_CARD, cn: ABSTRACT_LENGTH_CN_CARD });
     }
     delete detailPost.content;
     return detailPost;

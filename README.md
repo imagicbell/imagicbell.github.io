@@ -18,8 +18,9 @@
 * more blogs
 * blog list
 * blog category
+* side bar
 
-website-content:
+### website-content:
 1. homepage: show myself, contact link.
    "Think out of box, make it happen."
 2. resume

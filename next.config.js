@@ -1,8 +1,7 @@
 const prod = process.env.NODE_ENV === "production";
 const basePath = ""; 
 
-module.exports = prod ? 
-{
+const prodConfig = {
   basePath: basePath,
   images: {
     loader: 'imgix',
@@ -12,10 +11,23 @@ module.exports = prod ?
     basePath: basePath,
     domain: "",
   }
-} : 
-{
+}
+
+const devConfig = {
   env: {
     basePath: '',
     domain: "http://localhost:3000"
   }
 };
+
+module.exports = {
+  ...(prod ? prodConfig : devConfig),
+  async rewrites() {
+    return [
+      {
+        source: '/blog',
+        destination: '/blog/page1',
+      },
+    ]
+  },
+}
