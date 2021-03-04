@@ -1,35 +1,17 @@
 import { getAllPosts, getPostBySlug, extractPostAbstract } from '../../lib/api';
 import { BLOG_PAGINATE, ABSTRACT_LENGTH_PREVIEW, ABSTRACT_LENGTH_CN_PREVIEW } from '../../lib/constants';
-import Layout from '../../components/layout'
-import Container from '../../components/container'
-import PostPreview from '../../components/post-preview'
-import Paginate from '../../components/paginate'
 import { useRouter } from 'next/router';
+import PostList from '../../components/post-list';
 
-export default function Blog({ posts, pageCount }) {
+export default function Blog(props) {
 	const router = useRouter();
-	const curPage = parseInt(router.asPath.slice('/blog/page'.length));
+	const curPage = router.query.page ? parseInt(router.query.page[1]) : 1;
 
-	return (
-		<Layout>
-      <Container>
-				<div className="max-w-3xl ml-16 py-20">
-					<div className='mb-16'>
-					{
-						posts.map(post => (
-							<PostPreview key={post.slug} post={post} />
-						))
-					}
-					</div>
-					<Paginate pageCount={pageCount} curPage={curPage} />
-				</div>
-			</Container>
-		</Layout>
-	)
+	return <PostList curPage={curPage} pagePath='/blog/page/' {...props} />
 }
 
 export async function getStaticProps({ params }) {
-	const page = parseInt(params.page.slice(4));
+	const page = !params.page ? 1 : parseInt(params.page[1]);
 	let posts = getAllPosts(['slug', 'date']);
 	const pageCount = Math.ceil(posts.length / BLOG_PAGINATE);
 	posts = posts.slice((page - 1) * BLOG_PAGINATE, page * BLOG_PAGINATE)
@@ -66,7 +48,7 @@ export async function getStaticPaths() {
 		paths: new Array(pageCount).fill().map((_, index) => (
 			{
 				params: {
-					page: `page${index + 1}`,
+					page: (index === 0) ? false : ['page', `${index + 1}`],
 				}
 			}
 		)),

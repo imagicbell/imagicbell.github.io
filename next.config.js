@@ -22,11 +22,12 @@ const devConfig = {
 
 module.exports = {
   ...(prod ? prodConfig : devConfig),
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: '/blog',
-        destination: '/blog/page1',
+        source: '/blog/page/1',
+        destination: '/blog',
+        permanent: true,
       },
     ]
   },

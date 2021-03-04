@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Paginate({ pageCount, curPage }) {
+export default function Paginate({ pageCount, curPage, pagePath }) {
 	let pages;
 	if (pageCount <= 4) {
 		pages = new Array(pageCount).fill().map((_, index) => index + 1);
@@ -45,17 +45,17 @@ export default function Paginate({ pageCount, curPage }) {
 				}
 			`}</style>
 
-			<Link href={`/blog/page${curPage-1}`}>
+			<Link href={`${pagePath}${curPage-1}`}>
 				<a className={`paginate prev-next ${!enablePrev && 'disabled'}`}>Previous</a>	
 			</Link>
 			{
 				pages.map(page => (
-					<Link key={page} href={`/blog/page${page}`}>
+					<Link key={page} href={`${pagePath}${page}`}>
 						<a  className={`paginate page-num border-l border-gray-300 ${(page === curPage || page === '...') && 'disabled'} ${page === curPage && 'current'}`}>{page}</a>
 					</Link>
 				))
 			}
-			<Link href={`/blog/page${curPage+1}`}>
+			<Link href={`${pagePath}${curPage+1}`}>
 				<a className={`paginate prev-next border-l border-gray-300 ${!enableNext && 'disabled'}`}>Next</a>
 			</Link>
 		</div>
