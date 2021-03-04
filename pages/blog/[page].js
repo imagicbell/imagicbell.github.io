@@ -43,6 +43,7 @@ export async function getStaticProps({ params }) {
 									'categories',
 									'abstract',
 									'content',
+									'readTime'
 								]);
 								if (post.abstract === undefined) {
 									post.abstract = extractPostAbstract(post, { en: ABSTRACT_LENGTH_PREVIEW, cn: ABSTRACT_LENGTH_CN_PREVIEW });

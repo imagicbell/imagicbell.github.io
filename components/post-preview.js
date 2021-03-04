@@ -31,18 +31,21 @@ export default function PostPreview({ post }) {
         <div className="mb-4" >
           <MarkdownContent content={post.abstract} />
         </div>
-        <div className='text-gray-500 text-sm'>
+        <div className='text-gray-500 text-sm flex items-center'>
           <DateFormatter dateString={post.date} />
-          <span className='ml-4'>Time to Read</span>
+          <div className='mx-2 w-px h-px border rounded border-gray-500'/>
+          <span >{`${post.readTime}min read`}</span>
         </div>
       </div>
 
       <div className='absolute right-4 bottom-6 flex justify-end items-center text-gray-500 text-sm'>
-        <FontAwesomeIcon icon={faFolderOpen} />
+        <FontAwesomeIcon className='h-4' icon={faFolderOpen} />
         {
-          post.categories.map(cat => (
-            <Link href=''>
-              <a className='ml-2 hover:underline hover:text-gray-700'>{cat}</a>
+          post.categories.map((cat, index) => (
+            <Link key={cat} href=''>
+              <a className='ml-2 hover:underline hover:text-gray-700 whitespace-nowrap'>
+                {`${cat}${index<post.categories.length-1 ? ',' : ''}`}
+              </a>
             </Link>
           ))
         }
