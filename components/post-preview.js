@@ -42,7 +42,7 @@ export default function PostPreview({ post }) {
         <FontAwesomeIcon className='h-4' icon={faFolderOpen} />
         {
           post.categories.map((cat, index) => (
-            <Link key={cat} href=''>
+            <Link key={cat} href={`/blog/${cat.toLowerCase()}`}>
               <a className='ml-2 hover:underline hover:text-gray-700 whitespace-nowrap'>
                 {`${cat}${index<post.categories.length-1 ? ',' : ''}`}
               </a>
