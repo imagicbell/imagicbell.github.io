@@ -1,5 +1,5 @@
-import { getAllPosts, getPostBySlug, extractPostAbstract } from '../../lib/api';
-import { BLOG_PAGINATE, ABSTRACT_LENGTH_PREVIEW, ABSTRACT_LENGTH_CN_PREVIEW } from '../../lib/constants';
+import { getAllPosts, getPostForPreview } from '../../lib/api';
+import { BLOG_PAGINATE } from '../../lib/constants';
 import { useRouter } from 'next/router';
 import PostList from '../../components/post-list';
 
@@ -15,24 +15,7 @@ export async function getStaticProps({ params }) {
 	let posts = getAllPosts(['slug', 'date']);
 	const pageCount = Math.ceil(posts.length / BLOG_PAGINATE);
 	posts = posts.slice((page - 1) * BLOG_PAGINATE, page * BLOG_PAGINATE)
-							 .map(p => {
-								let post = getPostBySlug(p.slug, [
-									'slug',
-									'title',
-									'date',
-									'locale',
-									'ogImage',
-									'categories',
-									'abstract',
-									'content',
-									'readTime'
-								]);
-								if (post.abstract === undefined) {
-									post.abstract = extractPostAbstract(post, { en: ABSTRACT_LENGTH_PREVIEW, cn: ABSTRACT_LENGTH_CN_PREVIEW });
-								}
-								delete post.content;
-								return post;
-							 });
+							 .map(post => getPostForPreview(post.slug));
 	return {
 		props: {
 			posts,

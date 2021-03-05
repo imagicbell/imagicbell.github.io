@@ -29,6 +29,11 @@ module.exports = {
         destination: '/blog',
         permanent: true,
       },
+      {
+        source: '/blog/:category/page/1',
+        destination: '/blog/:category',
+        permanent: true,
+      },
     ]
   },
 }

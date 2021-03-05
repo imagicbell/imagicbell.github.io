@@ -10,6 +10,7 @@
 4. markdown image url, remark-html -> showdown
 5. show math
 6. unified, remark-parse to extract abstract from markdown files. Extract 'text' from markdown
+7. count markdown text
 
 ### blog
 * add ogImage, description
