@@ -13,3 +13,10 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+:root {
+	--base-gray: rgb(107, 114, 128); 	/*text-gray-500*/
+	--highlight-gray: rgb(55, 65, 81); /*text-gray-700*/
+	--disable-gray: rgb(156,163,175); /*text-gray-400*/
+	--border-gray: rgb(209, 213, 219);  /*border-gray-300*/
+	--line-gray: rgb(229, 231, 235); /*border-gray-200*/
+}

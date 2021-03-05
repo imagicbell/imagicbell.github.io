@@ -25,8 +25,11 @@ export default function Paginate({ pageCount, curPage, pagePath }) {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					color: #6b7280;
+					color: var(--base-gray);
 					height: 100%;
+				}
+				.paginate:hover {
+					color: var(--highlight-gray);
 				}
 				.prev-next {
 					width: 5rem;
@@ -35,13 +38,13 @@ export default function Paginate({ pageCount, curPage, pagePath }) {
 					width: 2.5rem;
 				}
 				.disabled {
-					color: #9ca3af;
+					color: var(--disable-gray);
 					pointer-events: none;
 					cursor: not-allowed;
 				}
 				.current {
 					color: #fff;
-					background: #6b7280;
+					background: var(--base-gray);
 				}
 			`}</style>
 

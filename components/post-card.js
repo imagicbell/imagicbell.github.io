@@ -13,8 +13,8 @@ export default function PostCard({ post }) {
 	}
 
 	return (
-		<div className="relative h-60 border-solid border-2 rounded border-gray-200 cursor-pointer hover:shadow-md p-2">
-			<div className="absolute left-0 top-0 w-full h-24 bg-gray-200">
+		<div className="relative h-60 border-solid border-2 rounded border-gray-300 cursor-pointer hover:shadow-md p-2">
+			<div className="absolute left-0 top-0 w-full h-24 bg-gray-300">
 			{
 				post.ogImage && (
 					<Image
@@ -35,7 +35,7 @@ export default function PostCard({ post }) {
 			<div className="overflow-hidden h-24">
 				<MarkdownContent content={post.abstract} />
 			</div>
-			<DateFormatter className="text-sm text-gray-600 absolute bottom-2" dateString={post.date} />
+			<DateFormatter className="text-sm text-gray-500 absolute bottom-2" dateString={post.date} />
 			<Link href={`/posts/${post.slug}`}>
 				<a className="absolute top-0 left-0 w-full h-full"></a>
 			</Link>
