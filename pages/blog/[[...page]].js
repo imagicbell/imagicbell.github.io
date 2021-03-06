@@ -1,7 +1,31 @@
 import { getAllPosts, getPostForPreview } from '../../lib/api';
 import { BLOG_PAGINATE } from '../../lib/constants';
 import { useRouter } from 'next/router';
+import Head from 'next/head'
 import PostList from '../../components/post-list';
+
+function HeadMeta({ category }) {
+	if (category) {
+		category = category.split(/([\s\-])/)
+											 .map(word => /[\s\-]/.test(word) ? word : word[0].toUpperCase() + word.slice(1))
+											 .join('');
+	}
+	const title = `Magicbell's Blog${category ? ' - ' + category : ''}`;
+	const desc = "Welcome to Magicbell's Website - see blog posts.";
+
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content={desc}/>
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+			<meta property="og:description" content={desc}/>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={title} />
+			<meta name="twitter:description" content={desc}/>
+    </Head>
+  )
+}
 
 export default function Blog(props) {
 	const router = useRouter();
@@ -16,7 +40,12 @@ export default function Blog(props) {
 	}
 	let pagePath = category ? `/blog/${category}/` : '/blog/page/';
 
-	return <PostList curPage={page} pagePath={pagePath} {...props} />
+	return (
+		<>
+			<HeadMeta category={category} />
+			<PostList curPage={page} pagePath={pagePath} {...props} />
+		</>
+	)
 }
 
 export async function getStaticProps({ params }) {

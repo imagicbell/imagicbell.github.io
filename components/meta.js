@@ -31,7 +31,8 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta name="description" content="Personal website developed by Next.js" />
+      <title>Magicbell's Website</title>
+      <meta name="description" content="Welcome to Magicbell's Website!" />
     </Head>
   )
 }

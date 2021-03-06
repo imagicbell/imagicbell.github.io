@@ -20,6 +20,7 @@
 * blog list
 * blog category
 * side bar
+* header, footer
 
 ### website-content:
 1. homepage: show myself, contact link.
