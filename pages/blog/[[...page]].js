@@ -1,8 +1,10 @@
 import { getAllPosts, getPostForPreview } from '../../lib/api';
-import { BLOG_PAGINATE } from '../../lib/constants';
+import { Settings } from '../../lib/constants';
 import { useRouter } from 'next/router';
 import Head from 'next/head'
 import PostList from '../../components/post-list';
+import Layout from '../../components/layout'
+import Sidebar from '../../components/sidebar';
 
 function HeadMeta({ category }) {
 	if (category) {
@@ -41,10 +43,13 @@ export default function Blog(props) {
 	let pagePath = category ? `/blog/${category}/` : '/blog/page/';
 
 	return (
-		<>
+		<Layout>
 			<HeadMeta category={category} />
-			<PostList curPage={page} pagePath={pagePath} {...props} />
-		</>
+			<div className='flex flex-row justify-between'>
+				<div className="w-full lg:w-2/3"><PostList curPage={page} pagePath={pagePath} {...props} /></div>
+				<div className="hidden lg:block lg:w-1/3 box-border ml-8"><Sidebar /></div>			
+			</div>
+		</Layout>
 	)
 }
 
@@ -63,8 +68,8 @@ export async function getStaticProps({ params }) {
 							? getAllPosts(['slug', 'date'])
 							: getAllPosts(['slug', 'categories', 'date'])
 									.filter(post => post.categories.find(cat => cat.toLowerCase() === category));
-	const pageCount = Math.ceil(posts.length / BLOG_PAGINATE);
-	posts = posts.slice((page - 1) * BLOG_PAGINATE, page * BLOG_PAGINATE)
+	const pageCount = Math.ceil(posts.length / Settings.blogPaginate);
+	posts = posts.slice((page - 1) * Settings.blogPaginate, page * Settings.blogPaginate)
 								.map(post => getPostForPreview(post.slug));
 
 	return {
@@ -77,7 +82,7 @@ export async function getStaticProps({ params }) {
 
 function getPaths() {
 	const posts = getAllPosts(['slug']);
-	const pageCount = Math.ceil(posts.length / BLOG_PAGINATE);
+	const pageCount = Math.ceil(posts.length / Settings.blogPaginate);
 	return new Array(pageCount).fill().map((_, index) => (
 						{
 							params: {
@@ -101,7 +106,7 @@ function getCategoryPaths() {
 						return acc;
 					}, [])
 					.reduce((acc, cur) => {
-						let pageCount = Math.ceil(cur.postCount / BLOG_PAGINATE);
+						let pageCount = Math.ceil(cur.postCount / Settings.blogPaginate);
 						return acc.concat(new Array(pageCount).fill().map((_, index) => (
 																{
 																	params: {

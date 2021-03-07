@@ -1,4 +1,3 @@
-import Container from '../components/container'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
@@ -9,9 +8,7 @@ export default function Index({ }) {
       <Head>
         <title>Next.js Blog Example with</title>
       </Head>
-      <Container>
 
-      </Container>
     </Layout>
   )
 }

@@ -1,10 +1,8 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
 import PostHeader from '../../components/post-header'
 import PostBody from '../../components/post-body'
 import PostFooter from '../../components/post-footer'
-import Header from '../../components/header'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts, extractPostAbstract } from '../../lib/api'
 import PostTitle from '../../components/post-title'
@@ -40,26 +38,23 @@ export default function Post({ post, postNav, morePosts }) {
   }
   return (
     <Layout>
-      <Container>
-        <Header />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <> 
-            <HeadMeta post={post} />
-            <div className="mx-auto">
-              <article className="mb-20">
-                <PostHeader
-                  title={post.title}
-                  date={post.date}
-                />
-                <PostBody content={post.content} />
-              </article>
-              <PostFooter post={post} postNav={postNav} morePosts={morePosts} />
-            </div>
-          </>
-        )}
-      </Container>
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <> 
+          <HeadMeta post={post} />
+          <div className="mx-auto">
+            <article className="mb-20">
+              <PostHeader
+                title={post.title}
+                date={post.date}
+              />
+              <PostBody content={post.content} />
+            </article>
+            <PostFooter post={post} postNav={postNav} morePosts={morePosts} />
+          </div>
+        </>
+      )}
     </Layout>
   )
 }

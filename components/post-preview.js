@@ -8,7 +8,7 @@ import { faFolderOpen } from '@fortawesome/free-solid-svg-icons'
 export default function PostPreview({ post }) {
 
   return (
-    <div className="relative mb-8 border-solid border border-gray-300 rounded cursor-pointer shadow-sm hover:shadow-md">
+    <div className="relative mb-8 border border-solid border-gray-300 rounded cursor-pointer shadow-sm hover:shadow-md">
       <Link href={`/posts/${post.slug}`}>
 				<a className="absolute top-0 left-0 w-full h-full"></a>
 			</Link>
@@ -31,9 +31,9 @@ export default function PostPreview({ post }) {
         <div className="mb-4" >
           <MarkdownContent content={post.abstract} />
         </div>
-        <div className='text-gray-500 text-sm flex items-center'>
+        <div className='text-gray-500 text-sm flex flex-col sm:flex-row sm:items-center'>
           <DateFormatter dateString={post.date} />
-          <div className='mx-2 w-px h-px border rounded border-gray-500'/>
+          <div className='mx-2 w-px h-px border rounded border-gray-500 hidden sm:block'/>
           <span >{`${post.readTime}min read`}</span>
         </div>
       </div>
