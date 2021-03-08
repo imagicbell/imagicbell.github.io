@@ -5,10 +5,8 @@ export default function PostHeader({ title, date }) {
   return (
     <div className="max-w-4xl mx-auto mb-20">
       <PostTitle>{title}</PostTitle>
-      <div className="text-lg">
-        <DateFormatter dateString={date} />
-      </div>
-      <hr className="border-theme-line"/>
+      <DateFormatter className="text-lg text-theme-meta"  dateString={date} />
+      <hr className="border-theme-line mt-2"/>
     </div>
   )
 }

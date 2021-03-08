@@ -20,6 +20,10 @@ module.exports = {
           bg: {
             DEFAULT: themeColor[300],
             light: themeColor[200],
+            text: {
+              DEFAULT: colors.coolGray[500],
+              highlight: colors.coolGray[700]
+            }
           },
           border: {
             DEFAULT: themeColor[300],
@@ -28,19 +32,15 @@ module.exports = {
             DEFAULT: themeColor[200]
           }
         },
-        gray: {
-          DEFAULT: colors.coolGray[500],
-          highlight: colors.coolGray[700],
-          disable: colors.coolGray[400],
-          border: colors.coolGray[300],
-          line: colors.coolGray[200]
-        }
       },
       boxShadow: {
         sm: `0 5px 10px ${themeShadow}`,
         md: `0 8px 30px ${themeShadow}`,
       },
 
+      padding: {
+        container: '6rem',
+      },
       spacing: {
         28: '7rem',
       },

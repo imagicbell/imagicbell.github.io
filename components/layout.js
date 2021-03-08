@@ -6,9 +6,9 @@ export default function Layout({ children }) {
   return (
     <>
       <Meta />
-      <div className="min-h-screen container mx-auto">
+      <div className="min-h-screen">
         <Header />
-        <main className="mx-24">{children}</main>
+        <main className="container mx-auto my-14 px-container">{children}</main>
       </div>
       <Footer />
     </>
