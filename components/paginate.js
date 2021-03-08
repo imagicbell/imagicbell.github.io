@@ -19,17 +19,15 @@ export default function Paginate({ pageCount, curPage, pagePath }) {
 	const enableNext = curPage < pageCount;
 
 	return (
-		<div className={`h-8 border border-gray-300 rounded flex`} style={{width: `${width}rem`}}>
+		<div className={`h-8 border border-theme-border rounded flex text-theme-link`} style={{width: `${width}rem`}}>
 			<style jsx>{`
 				.paginate {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					color: var(--base-gray);
 					height: 100%;
 				}
 				.paginate:hover {
-					color: var(--highlight-gray);
 				}
 				.prev-next {
 					width: 5rem;
@@ -38,28 +36,30 @@ export default function Paginate({ pageCount, curPage, pagePath }) {
 					width: 2.5rem;
 				}
 				.disabled {
-					color: var(--disable-gray);
 					pointer-events: none;
 					cursor: not-allowed;
 				}
 				.current {
 					color: #fff;
-					background: var(--base-gray);
 				}
 			`}</style>
 
 			<Link href={`${pagePath}${curPage-1}`}>
-				<a className={`paginate prev-next ${!enablePrev && 'disabled'}`}>Previous</a>	
+				<a className={`paginate hover:text-theme-link-highlight prev-next ${!enablePrev && 'disabled'}`}>Previous</a>	
 			</Link>
 			{
-				pages.map(page => (
-					<Link key={page} href={`${pagePath}${page}`}>
-						<a  className={`paginate page-num border-l border-gray-300 ${(page === curPage || page === '...') && 'disabled'} ${page === curPage && 'current'}`}>{page}</a>
-					</Link>
-				))
+				pages.map(page => {
+					let disabled_cn = (page === curPage || page === '...') ? 'disabled text-theme-link-disable' : '';
+					let current_cn = page === curPage ? 'current bg-theme-link' : '';
+					return (
+						<Link key={page} href={`${pagePath}${page}`}>
+							<a  className={`paginate hover:text-theme-link-highlight page-num border-l border-theme-border ${disabled_cn} ${current_cn}`}>{page}</a>
+						</Link>
+					)
+				})
 			}
 			<Link href={`${pagePath}${curPage+1}`}>
-				<a className={`paginate prev-next border-l border-gray-300 ${!enableNext && 'disabled'}`}>Next</a>
+				<a className={`paginate hover:text-theme-link-highlight prev-next border-l border-theme-border ${!enableNext && 'disabled text-theme-link-disable'}`}>Next</a>
 			</Link>
 		</div>
 	)

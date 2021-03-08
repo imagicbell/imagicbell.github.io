@@ -8,7 +8,7 @@ import { faFolderOpen } from '@fortawesome/free-solid-svg-icons'
 export default function PostPreview({ post }) {
 
   return (
-    <div className="relative mb-8 border border-solid border-gray-300 rounded cursor-pointer shadow-sm hover:shadow-md">
+    <div className="relative mb-8 border border-solid border-theme-border rounded cursor-pointer shadow-sm hover:shadow-md">
       <Link href={`/posts/${post.slug}`}>
 				<a className="absolute top-0 left-0 w-full h-full"></a>
 			</Link>
@@ -31,19 +31,19 @@ export default function PostPreview({ post }) {
         <div className="mb-4" >
           <MarkdownContent content={post.abstract} />
         </div>
-        <div className='text-gray-500 text-sm flex flex-col sm:flex-row sm:items-center'>
+        <div className='text-theme-meta text-sm flex flex-col sm:flex-row sm:items-center'>
           <DateFormatter dateString={post.date} />
-          <div className='mx-2 w-px h-px border rounded border-gray-500 hidden sm:block'/>
+          <div className='mx-2 w-px h-px border rounded border-gray hidden sm:block'/>
           <span >{`${post.readTime}min read`}</span>
         </div>
       </div>
 
-      <div className='absolute right-4 bottom-6 flex justify-end items-center text-gray-500 text-sm'>
+      <div className='absolute right-4 bottom-6 flex justify-end items-center text-theme-link text-sm'>
         <FontAwesomeIcon className='h-4' icon={faFolderOpen} />
         {
           post.categories.map((cat, index) => (
             <Link key={cat} href={`/blog/${cat.toLowerCase()}`}>
-              <a className='ml-2 hover:underline hover:text-gray-700 whitespace-nowrap'>
+              <a className='ml-2 hover:underline hover:text-theme-link-highlight whitespace-nowrap'>
                 {`${cat}${index<post.categories.length-1 ? ',' : ''}`}
               </a>
             </Link>

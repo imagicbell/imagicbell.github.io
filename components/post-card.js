@@ -13,14 +13,14 @@ export default function PostCard({ post }) {
 	}
 
 	return (
-		<div className="relative h-60 border-solid border-2 rounded border-gray-300 cursor-pointer hover:shadow-md p-2">
-			<div className="absolute left-0 top-0 w-full h-24 bg-gray-300">
+		<div className="relative h-60 border-solid border-2 rounded border-theme-border cursor-pointer hover:shadow-md p-2">
+			<div className="absolute left-0 top-0 w-full h-24 bg-theme-bg">
 			{
 				post.ogImage && (
 					<Image
 						src={post.ogImage}
 						alt=''
-						className='opacity-60'
+						// className='opacity-60'
 						layout='fill'
 						objectFit='cover'
 					/>
@@ -35,7 +35,7 @@ export default function PostCard({ post }) {
 			<div className="overflow-hidden h-24">
 				<MarkdownContent content={post.abstract} />
 			</div>
-			<DateFormatter className="text-sm text-gray-500 absolute bottom-2" dateString={post.date} />
+			<DateFormatter className="text-sm text-theme-meta absolute bottom-2" dateString={post.date} />
 			<Link href={`/posts/${post.slug}`}>
 				<a className="absolute top-0 left-0 w-full h-full"></a>
 			</Link>

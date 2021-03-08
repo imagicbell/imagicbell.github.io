@@ -1,14 +1,46 @@
+const colors = require('tailwindcss/colors');
+const themeColor = colors.red;
+const themeShadow = 'rgba(252, 165, 165, 0.12)'; /**color-red-300 */
+// const themeColor = colors.coolGray;
+// const themeShadow = 'rgba(0, 0, 0, 0.12)'; 
+
+
 module.exports = {
   purge: ['./components/**/*.js', './pages/**/*.js'],
   theme: {
     extend: {
       colors: {
-        'accent-1': '#FAFAFA',
-        'accent-2': '#EAEAEA',
-        'accent-7': '#333',
-        success: '#0070f3',
-        cyan: '#79FFE1',
+        theme: {
+          meta: colors.coolGray[500],
+          link: {
+            DEFAULT: themeColor[500],
+            highlight: themeColor[700],
+            disable: themeColor[400],
+          },
+          bg: {
+            DEFAULT: themeColor[300],
+            light: themeColor[200],
+          },
+          border: {
+            DEFAULT: themeColor[300],
+          },
+          line: {
+            DEFAULT: themeColor[200]
+          }
+        },
+        gray: {
+          DEFAULT: colors.coolGray[500],
+          highlight: colors.coolGray[700],
+          disable: colors.coolGray[400],
+          border: colors.coolGray[300],
+          line: colors.coolGray[200]
+        }
       },
+      boxShadow: {
+        sm: `0 5px 10px ${themeShadow}`,
+        md: `0 8px 30px ${themeShadow}`,
+      },
+
       spacing: {
         28: '7rem',
       },
@@ -23,10 +55,6 @@ module.exports = {
         '6xl': '2.75rem',
         '7xl': '4.5rem',
         '8xl': '6.25rem',
-      },
-      boxShadow: {
-        sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
-        md: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
     },
   },

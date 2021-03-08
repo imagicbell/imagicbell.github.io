@@ -6,7 +6,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 function Full({ name, bio, avatar, location, links }) {
   return (
-    <div className="border border-solid border-gray-300 rounded shadow-sm flex flex-col">
+    <div className="border border-solid border-theme-border rounded shadow-sm flex flex-col">
       <div className="px-20 mt-6">
         <Image
           className="rounded-full"
@@ -20,14 +20,14 @@ function Full({ name, bio, avatar, location, links }) {
       <div className="m-6">
         <div className="text-xl font-semibold">{name}</div>
         <div className="mt-2">{bio}</div>
-        <div className="mt-3 text-gray-500 flex items-center">
+        <div className="mt-3 text-theme-meta flex items-center">
           <FontAwesomeIcon className="h-5 mr-2" icon={faMapMarkerAlt} />
           {location}
         </div>
         <div className="mt-3 flex items-center">
           {
-            links.map(link => (
-              <a className="mr-2" href={link.href}>
+            links.map((link, id) => (
+              <a key={id} className="mr-2" href={link.href}>
                 <FontAwesomeIcon className="h-6" style={{color: link.color}} icon={link.icon}/>
               </a>
             ))
@@ -53,13 +53,13 @@ function Small({ avatar, links }) {
       </div>
       <div className="flex flex-col items-center">
         {
-          links.map(link => (
-            <>
-              <div className="w-0.5 h-2 bg-gray-300"></div> 
+          links.map((link, id) => (
+            <div key={id}>
+              <div className="w-0.5 h-2 bg-theme-bg"></div> 
               <a href={link.href}>
                 <FontAwesomeIcon className="h-6" style={{color: link.color}} icon={link.icon}/>
               </a>
-            </>
+            </div>
           ))
         }
       </div>

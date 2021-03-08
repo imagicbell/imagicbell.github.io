@@ -15,7 +15,7 @@ function PostNav({ postNav }) {
 			{
 				postNav.previous && 
 					<Link href={postNav.previous}>
-						<a className="flex mr-8 transition-colors duration-200 text-gray-500 hover:text-gray-700">
+						<a className="flex mr-8 transition-colors duration-200 text-theme-link hover:text-theme-link-highlight">
 							<span aria-hidden className="mr-2">←</span>
 							Previous Post
 						</a>
@@ -24,7 +24,7 @@ function PostNav({ postNav }) {
 			{
 				postNav.next &&
 					<Link href={postNav.next}>
-						<a className="flex text-right ml-auto transition-colors duration-200 text-gray-500 hover:text-gray-700">
+						<a className="flex text-right ml-auto transition-colors duration-200 text-theme-link hover:text-theme-link-highlight">
 							Next Post
 							<span aria-hidden className="ml-2">→</span>
 						</a>
@@ -89,7 +89,7 @@ function PostMore({ morePosts }) {
 function Section({ children }) {
 	return (
 		<div>
-			<hr className="border-gray-200 mt-6 mb-6"/>
+			<hr className="border-theme-line mt-6 mb-6"/>
 			{ children }
 		</div>
 	)

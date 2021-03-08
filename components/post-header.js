@@ -8,7 +8,7 @@ export default function PostHeader({ title, date }) {
       <div className="text-lg">
         <DateFormatter dateString={date} />
       </div>
-      <hr className="border-gray-200"/>
+      <hr className="border-theme-line"/>
     </div>
   )
 }
