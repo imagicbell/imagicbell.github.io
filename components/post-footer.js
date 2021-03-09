@@ -62,9 +62,9 @@ function PostDisqus({ post }) {
 
 function PostMore({ morePosts }) {
 	return (
-		<div>
+		<div className="pt-4 pb-6">
 			<h2 className="text-xl font-medium leading-tight md:leading-none mb-6 text-center">MORE FROM THE BLOG</h2>
-			<div className="grid grid-flow-row grid-cols-2 grid-rows-2 lg:grid-cols-4 gap-4">
+			<div className="grid grid-flow-row grid-cols-2 grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 gap-4">
 				{ 
 					morePosts.map(post => (
 						<PostCard key={post.slug} post={post} />
