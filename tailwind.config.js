@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors');
 const themeColor = colors.red;
-const themeShadow = 'rgba(252, 165, 165, 0.12)'; /**color-red-300 */
+const themeShadow = 'rgba(153, 27, 27, 0.12)'; /**color-red-300 */
 // const themeColor = colors.coolGray;
 // const themeShadow = 'rgba(0, 0, 0, 0.12)'; 
 
@@ -20,9 +20,9 @@ module.exports = {
           bg: {
             DEFAULT: themeColor[300],
             light: themeColor[200],
-            text: {
-              DEFAULT: colors.coolGray[500],
-              highlight: colors.coolGray[700]
+            strong: {
+              DEFAULT: themeColor[500],
+              text: colors.white,
             }
           },
           border: {

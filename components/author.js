@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { Settings } from '../lib/constants';
+import SocialLink from './social-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelopeSquare, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 
 function Full({ name, bio, avatar, location, links }) {
   return (
@@ -25,13 +25,7 @@ function Full({ name, bio, avatar, location, links }) {
           {location}
         </div>
         <div className="mt-3 flex items-center">
-          {
-            links.map((link, id) => (
-              <a key={id} className="mr-2" href={link.href}>
-                <FontAwesomeIcon className="h-6" style={{color: link.color}} icon={link.icon}/>
-              </a>
-            ))
-          }
+          <SocialLink />
         </div>
       </div>
     </div>
@@ -51,7 +45,7 @@ function Small({ avatar, links }) {
           height={60}
         />
       </div>
-      <div className="flex flex-col items-center">
+      {/* <div className="flex flex-col items-center">
         {
           links.map((link, id) => (
             <div key={id}>
@@ -62,7 +56,7 @@ function Small({ avatar, links }) {
             </div>
           ))
         }
-      </div>
+      </div> */}
     </div>
   )
 } 
@@ -73,10 +67,6 @@ export default function Author({ style }) {
     bio: Settings.author.bio,
     avatar: Settings.author.avatar,
     location: Settings.author.location,
-    links: [
-      { icon: faEnvelopeSquare, href: `mailto:${Settings.author.email}`, color: "rgb(239, 68, 68)" },
-      { icon: faLinkedin, href: `https://www.linkedin.com/in/${Settings.author.linkedin}`, color: "#007bb6"},
-    ]
   };
 
   return (

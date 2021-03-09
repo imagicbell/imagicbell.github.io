@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolderOpen } from '@fortawesome/free-solid-svg-icons'
+import { Dot } from './segment'
 
 export default function PostPreview({ post }) {
 
@@ -33,7 +34,7 @@ export default function PostPreview({ post }) {
         </div>
         <div className='text-theme-meta text-sm flex flex-col sm:flex-row sm:items-center'>
           <DateFormatter dateString={post.date} />
-          <div className='mx-2 w-px h-px border rounded border-gray hidden sm:block'/>
+          <Dot className='mx-2 border rounded border-theme-meta hidden sm:block'/>
           <span >{`${post.readTime}min read`}</span>
         </div>
       </div>

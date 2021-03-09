@@ -1,13 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { DiscussionEmbed } from 'disqus-react';
-import { 
-	FacebookShareButton, FacebookIcon,
-	TwitterShareButton, TwitterIcon,
-	LinkedinShareButton, LinkedinIcon,
-	WeiboShareButton, WeiboIcon
-} from 'react-share';
 import PostCard from './post-card';
+import { Hr } from './segment';
+import Share from './share';
 
 function PostNav({ postNav }) {
 	return (
@@ -35,22 +31,15 @@ function PostNav({ postNav }) {
 }
 
 function PostShare({ post }) {
-	const shareUrl = `${process.env.domain}${process.env.basePath}/posts/${post.slug}`;
-	const size = 40;
+	const meta = {
+		path: `/posts/${post.slug}`,
+		title: post.title,
+		image: post.ogImage
+	};
+
 	return (
 		<div className="flex leading-6 justify-center">
-			<FacebookShareButton className="mr-3 ml-3" url={shareUrl} quote={post.title} >
-				<FacebookIcon size={size} round />
-			</FacebookShareButton>
-			<TwitterShareButton className="mr-3 ml-3" url={shareUrl} title={post.title} >
-				<TwitterIcon size={size} round />
-			</TwitterShareButton>
-			<LinkedinShareButton className="mr-3 ml-3" url={shareUrl} >
-				<LinkedinIcon size={size} round />
-			</LinkedinShareButton>
-			<WeiboShareButton className="mr-3 ml-3" url={shareUrl} title={post.title} image={post.ogImage && `${process.env.domain}${process.env.basePath}${post.ogImage}`}>
-				<WeiboIcon size={size} round />
-			</WeiboShareButton>
+			<Share size={40} meta={meta} />
 		</div>
 	)
 }	
@@ -89,7 +78,7 @@ function PostMore({ morePosts }) {
 function Section({ children }) {
 	return (
 		<div>
-			<hr className="border-theme-line mt-6 mb-6"/>
+			<Hr className="mt-6 mb-6"/>
 			{ children }
 		</div>
 	)

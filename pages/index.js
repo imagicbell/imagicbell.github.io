@@ -1,20 +1,10 @@
-import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
+import Layout from '../components/layout';
 
 export default function Index({ }) {
   return (
     <Layout>
-      <Head>
-        <title>Next.js Blog Example with</title>
-      </Head>
-
+      <div>Welcome!</div>
     </Layout>
   )
 }
 
-export async function getStaticProps() {
-  return {
-    props: { },
-  }
-}

@@ -1,29 +1,16 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import SiteNav from './site-nav';
 
-const navLinks = [
-  { title: 'Blog', path: '/blog'},
-  { title: 'Resume', path: '/resume'},
-  { title: 'Contact', path: '/contact'}
-]
 
 export default function Header() {
   return (
-    <div className="box-border w-full bg-theme-bg flex justify-between items-center px-container py-4 text-theme-bg-text">
-      <h2 className="text-xl md:text-2xl font-bold tracking-tight md:tracking-tighter">
+    <div className="w-full bg-theme-bg-strong flex justify-between items-end px-container py-4 text-theme-bg-strong-text">
+      <h2 className="text-xl md:text-3xl font-bold tracking-tighter md:tracking-tight">
         <Link href="/">
-          <a className="hover:text-theme-bg-text-highlight">Magicbell's Website</a>
+          <a className="">Magicbell's Website</a>
         </Link>
       </h2>
-      <nav className="flex justify-end items-center">
-        {
-          navLinks.map(link => (
-            <Link key={link.title} href={link.path}>
-              <a className="hover:text-theme-bg-text-highlight ml-4">{link.title}</a>
-            </Link>
-          ))
-        }
-      </nav>
+      <SiteNav />
     </div>  
-    
   )
 }
