@@ -1,5 +1,5 @@
 export function Dot({ className }) {
-	return <div className={`w-px h-px ${className}`}/>
+	return <div className={`w-px h-px border rounded ${className}`}/>
 }
 
 export function Vr({ className }) {

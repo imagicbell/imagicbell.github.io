@@ -34,8 +34,8 @@ export default function PostPreview({ post }) {
         </div>
         <div className='text-theme-meta text-sm flex flex-col sm:flex-row sm:items-center'>
           <DateFormatter dateString={post.date} />
-          <Dot className='mx-2 border rounded border-theme-meta hidden sm:block'/>
-          <span >{`${post.readTime}min read`}</span>
+          <Dot className='mx-2 border-theme-meta hidden sm:block'/>
+          <span>{`${post.readTime}min read`}</span>
         </div>
       </div>
 

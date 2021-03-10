@@ -45,10 +45,7 @@ export default function Post({ post, postNav, morePosts }) {
           <HeadMeta post={post} />
           <div className="mx-auto">
             <article className="mb-20">
-              <PostHeader
-                title={post.title}
-                date={post.date}
-              />
+              <PostHeader post={post}/>
               <PostBody content={post.content} />
             </article>
             <PostFooter post={post} postNav={postNav} morePosts={morePosts} />
@@ -67,6 +64,7 @@ export async function getStaticProps({ params }) {
     'description',
     'ogImage',
     'categories',
+    'readTime',
     'content',
   ]);
   const postContent = await markdownToHtml(post.content || '')
@@ -96,6 +94,7 @@ export async function getStaticProps({ params }) {
       'locale',
       'ogImage',
       'abstract',
+      'readTime',
       'content',
     ]);
     if (detailPost.abstract === undefined) {

@@ -2,6 +2,7 @@ import DateFormatter from './date-formatter';
 import MarkdownContent from './markdown-content';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Dot } from './segment'
 
 export default function PostCard({ post }) {
 	let title = post.title;
@@ -35,7 +36,11 @@ export default function PostCard({ post }) {
 			<div className="overflow-hidden h-24">
 				<MarkdownContent content={post.abstract} />
 			</div>
-			<DateFormatter className="text-sm text-theme-meta absolute bottom-2" dateString={post.date} />
+			<div className="text-xs text-theme-meta absolute bottom-2 flex flex-col sm:flex-row sm:items-center">
+        <DateFormatter dateString={post.date} />
+        <Dot className="mx-2 border-theme-meta hidden sm:block"/>
+        <span>{`${post.readTime}min read`}</span>
+      </div>
 			<Link href={`/posts/${post.slug}`}>
 				<a className="absolute top-0 left-0 w-full h-full"></a>
 			</Link>
