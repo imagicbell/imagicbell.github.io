@@ -14,7 +14,7 @@ export default function PostCard({ post }) {
 	}
 
 	return (
-		<div className="relative h-60 border-solid border-2 rounded border-theme-border cursor-pointer hover:shadow-md p-2">
+		<div className="relative h-60 border rounded border-theme-border cursor-pointer hover:shadow-md p-2">
 			<div className="absolute left-0 top-0 w-full h-24 bg-theme-bg">
 			{
 				post.ogImage && (

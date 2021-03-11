@@ -1,16 +1,23 @@
-1. deploy to github pages
+#### next.js
+1. next generate static pages, router
+2. hot load
+3. deploy to github pages
    1. next export
    2. image caveat
    3. basePath
    4. img src 
-2. yaml, data type
-3. markdown css
+#### markdown 
+1. yaml, data type
+2. markdown css
    1. github-markdown-css
    2. ul, ol, list-style: none by tailwindcss
-4. markdown image url, remark-html -> showdown
-5. show math
-6. unified, remark-parse to extract abstract from markdown files. Extract 'text' from markdown
-7. count markdown text
+3. markdown image url, remark-html -> showdown
+4. show math
+5. unified, remark-parse to extract abstract from markdown files. Extract 'text' from markdown
+6. count markdown text
+#### style
+1. tailwindcss
+2. theme color
 
 ### blog
 * add ogImage, description
