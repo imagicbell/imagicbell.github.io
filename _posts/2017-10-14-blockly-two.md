@@ -17,7 +17,7 @@ locale: cn
 
 * Variable是作用在一个Workspace中的全局变量。
 
-* <a id ="block">Block</a>代表一段可执行程序。
+* <a id="block">Block</a>代表一段可执行程序。
   * 类比于一个方法，可以有输出（作为另一个Block的输入使用），也可以是没有输出（作为一个命令接在另一个Block下面执行）。
   * Blocks之间的关系有两种：输入/输出，前/后。Blocks在一个Workspace中的结构如下：
     ```
@@ -55,7 +55,7 @@ locale: cn
 
   * 依照json定义Block的描述，按顺序创建Input。
 
-    <a id ="json_message">一个例子：</a>
+    <a id="json_message">一个例子：</a>
 
     ```
     "message0": "%1 %2 %{BKY_LISTS_SPLIT_WITH_DELIMITER} %3"
@@ -95,7 +95,7 @@ locale: cn
 
 
 
-### <a id="mutation">Mutation特性</a>
+### Mutation特性
 
 上文Json定义中提到了[特殊属性](#json-special-define)，其中Mutation就是一个，它提供了动态修改Block结构的功能。
 

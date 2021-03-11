@@ -219,7 +219,7 @@ Workspace可以保存为Xml文件，当然是基于Block可以保存为一个Xml
 
 #### 变形Block View
 
-Block具有[Mutation特性]({%POST_URL%}/2017-10-14-blockly-two#mutation)，可以动态修改Block结构，因此动态生成Block View的功能为此提供了便利，可以动态增删Input Views。
+Block具有[Mutation特性]({%POST_URL%}/2017-10-14-blockly-two#section-mutation特性)，可以动态修改Block结构，因此动态生成Block View的功能为此提供了便利，可以动态增删Input Views。
 
 
 

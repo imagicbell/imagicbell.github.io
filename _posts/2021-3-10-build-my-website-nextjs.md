@@ -16,6 +16,8 @@ But I am not satisfied with it. To customize the page, I need to give a HTML fil
 
 Recently I met with [Next.js](https://nextjs.org/). It is a [React](https://reactjs.org/) framework, which means I can write **React Components**:v:. After walking through its starter tutorial, which is to create a very simple **blog app**, I found it is the perfect framework that helps me to start my website building. 
 
+This article mainly talks about some **basic features** making it perfect for my website building. Next two articles: [1]({%POST_URL%}/2021-3-12-build-my-website-markdown), [2]({%POST_URL%}/2021-3-14-build-my-website-style) will illustrate how I deal with **Markdown** and **Style**.
+
 In this article, firstly I will talk about some **basic features** making it perfect for my website building. Then I will illustrate how I deploy it to **Github Pages**. 
 
 ## Page-based Routing System

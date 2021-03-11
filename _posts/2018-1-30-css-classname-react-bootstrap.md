@@ -59,7 +59,7 @@ import styles from './home.css'
 
 ![](/blog/assets/img-css-classnames/css-module-name.png)
 
-In webpack config, the <a id ="webpack-cssmodule">naming strategy</a> can be customized:
+In webpack config, the <a id="webpack-cssmodule">naming strategy</a> can be customized:
 
 ```javascript
 {
@@ -94,7 +94,7 @@ It also provide a way to speicify `global` and `local` to the selectors in a css
 
 If `global` specified, the selector is scoped globally, whose identifier name will not be changed by the naming strategy.
 
-#### 3. <a id="react-cssmodule">[react-css-modules](https://github.com/gajus/react-css-modules)</a>
+#### 3. [react-css-modules](https://github.com/gajus/react-css-modules)
 
 By introducing css-modules, there are some annoy limitations for styling components. This is a convinient utility to make up for the disadvantages. 
 
@@ -133,7 +133,7 @@ The value of `generateScopedName` should be the same as that of `localIdentName`
 
 1. In **electron-react-boilerplate**, it uses css-modules. So all selectors defined in `*.css` files are locally scoped and changed by name, whereby the string value directly passed to the `className` don't match the changed selector's name. 
 
-   We should use `className={styles.classname}`, or we can ask [react-css-module](#react-cssmodule) for help.
+   We should use `className={styles.classname}`, or we can ask [react-css-modules](https://github.com/gajus/react-css-modules) for help.
 
 2. The child component of a react component sometimes is classNamed with a globally scoped class (see some source code examples in [react-bootstrap](https://github.com/react-bootstrap/react-bootstrap). If we want to override the styles, we can't specify the selector's name directly in a css module because it is locally scoped and will be changed name. 
 
