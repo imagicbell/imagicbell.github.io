@@ -30,7 +30,7 @@ export default function PostPreview({ post }) {
           {post.title}
         </p>
         <div className="mb-4" >
-          <MarkdownContent content={post.abstract} />
+          <MarkdownContent content={post.excerpt} />
         </div>
         <div className='text-theme-meta text-sm flex flex-col sm:flex-row sm:items-center'>
           <DateFormatter dateString={post.date} />

@@ -4,11 +4,11 @@ import PostHeader from '../../components/post-header'
 import PostBody from '../../components/post-body'
 import PostFooter from '../../components/post-footer'
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts, extractPostAbstract } from '../../lib/api'
+import { getPostBySlug, getAllPosts, extractPostExcerpt } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
-import { MORE_POST_NUM, ABSTRACT_LENGTH_CARD, ABSTRACT_LENGTH_CN_CARD } from '../../lib/constants'
+import { MORE_POST_NUM, EXCERPT_LENGTH_CARD, EXCERPT_LENGTH_CN_CARD } from '../../lib/constants'
 
 function HeadMeta({ post }) {
   return (
@@ -93,12 +93,12 @@ export async function getStaticProps({ params }) {
       'date',
       'locale',
       'ogImage',
-      'abstract',
+      'excerpt',
       'readTime',
       'content',
     ]);
-    if (detailPost.abstract === undefined) {
-      detailPost.abstract = extractPostAbstract(detailPost, { en: ABSTRACT_LENGTH_CARD, cn: ABSTRACT_LENGTH_CN_CARD });
+    if (detailPost.excerpt === undefined) {
+      detailPost.excerpt = extractPostExcerpt(detailPost, { en: EXCERPT_LENGTH_CARD, cn: EXCERPT_LENGTH_CN_CARD });
     }
     delete detailPost.content;
     return detailPost;

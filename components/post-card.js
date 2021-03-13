@@ -34,7 +34,7 @@ export default function PostCard({ post }) {
 				</p>
 			</div>
 			<div className="overflow-hidden h-24">
-				<MarkdownContent content={post.abstract} />
+				<MarkdownContent content={post.excerpt} />
 			</div>
 			<div className="text-xs text-theme-meta absolute bottom-2 flex flex-col sm:flex-row sm:items-center">
         <DateFormatter dateString={post.date} />
