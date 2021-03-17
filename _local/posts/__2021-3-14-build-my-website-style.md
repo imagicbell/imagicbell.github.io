@@ -2,7 +2,7 @@
 title:  "How To Build My Own Website (3) - Style"
 date:   "2021-03-14T20:00:00+08:00"
 categories: Front-End
-excerpt: This article illustrates how I style my own website using Tailwindcss framework and making theme color configurable.
+excerpt: This article illustrates how I style my own website using Tailwindcss framework, make theme color configurable, and apply interactive animations.
 ---
 
 
@@ -89,3 +89,6 @@ It looks also pretty cool. The color can be any color you what, in **hex** or **
 In addition to `colors`, there are many more properties can be extended or overrided, like `padding`, `fontSize`, `boxShadow`, etc. For details, check the [doc](https://tailwindcss.com/docs/theme).
 
  
+
+## Animation
+
