@@ -7,9 +7,9 @@ import { faFolderOpen } from '@fortawesome/free-solid-svg-icons'
 import { Dot } from './segment'
 
 export default function PostPreview({ post }) {
-
   return (
-    <div className="relative mb-8 border border-solid border-theme-border rounded cursor-pointer shadow-sm hover:shadow-md">
+    <div data-aos="fade-up"
+         className="relative mb-8 border border-solid border-theme-border rounded cursor-pointer shadow-sm hover:shadow-md">
       <Link href={`/posts/${post.slug}`}>
 				<a className="absolute top-0 left-0 w-full h-full"></a>
 			</Link>
