@@ -11,6 +11,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "aos": "^3.0.0-beta.6",
     "classnames": "2.2.6",
     "date-fns": "2.16.1",
     "disqus-react": "^1.0.11",

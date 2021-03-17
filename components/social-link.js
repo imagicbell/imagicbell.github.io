@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { Settings } from '../lib/constants';
+import { Settings } from '@/lib/constants';
 
 const links = [
 	{ icon: faEnvelopeSquare, href: `mailto:${Settings.author.email}`, color: "rgb(239, 68, 68)" },

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Settings } from '../lib/constants';
+import { Settings } from '@/lib/constants';
 import SocialLink from './social-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'

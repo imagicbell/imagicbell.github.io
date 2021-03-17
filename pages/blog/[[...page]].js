@@ -1,10 +1,10 @@
-import { getAllPosts, getPostForPreview } from '../../lib/api';
-import { Settings } from '../../lib/constants';
+import { getAllPosts, getPostForPreview } from '@/lib/api';
+import { Settings } from '@/lib/constants';
 import { useRouter } from 'next/router';
 import Head from 'next/head'
-import PostList from '../../components/post-list';
-import Layout from '../../components/layout'
-import Sidebar from '../../components/sidebar';
+import PostList from '@/components/post-list';
+import Layout from '@/components/layout'
+import Sidebar from '@/components/sidebar';
 
 function HeadMeta({ category }) {
 	if (category) {

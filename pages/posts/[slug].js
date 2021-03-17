@@ -1,14 +1,14 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import PostHeader from '../../components/post-header'
-import PostBody from '../../components/post-body'
-import PostFooter from '../../components/post-footer'
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts, extractPostExcerpt } from '../../lib/api'
-import PostTitle from '../../components/post-title'
+import PostHeader from '@/components/post-header'
+import PostBody from '@/components/post-body'
+import PostFooter from '@/components/post-footer'
+import Layout from '@/components/layout'
+import { getPostBySlug, getAllPosts, extractPostExcerpt } from '@/lib/api'
+import PostTitle from '@/components/post-title'
 import Head from 'next/head'
-import markdownToHtml from '../../lib/markdownToHtml'
-import { MORE_POST_NUM, EXCERPT_LENGTH_CARD, EXCERPT_LENGTH_CN_CARD } from '../../lib/constants'
+import markdownToHtml from '@/lib/markdownToHtml'
+import { MORE_POST_NUM, EXCERPT_LENGTH_CARD, EXCERPT_LENGTH_CN_CARD } from '@/lib/constants'
 
 function HeadMeta({ post }) {
   return (

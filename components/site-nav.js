@@ -20,12 +20,9 @@ export default function SiteNav({}) {
 						cn += " border-opacity-100";
 					}
 					return (
-						<>
-							{ index > 0 && <Vr key={index} className='text-theme-bg-strong-text opacity-70 h-3 md:h-4'/>}
-							<Link key={link.title} href={link.path}>
-								<a className={cn}>{link.title}</a>
-							</Link>
-						</>
+						<Link key={link.title} href={link.path}>
+							<a className={cn}>{link.title}</a>
+						</Link>
 					)
 				})
 			}

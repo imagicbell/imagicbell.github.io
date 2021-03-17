@@ -1,6 +1,6 @@
 import SiteNav from './site-nav';
 import Share from './share';
-import { Settings } from '../lib/constants';
+import { Settings } from '@/lib/constants';
 
 export default function Footer() {
   return (
