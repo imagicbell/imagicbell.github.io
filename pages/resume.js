@@ -2,7 +2,11 @@ import Head from 'next/head'
 import Layout from '@/components/layout';
 import { getAllExps } from '@/lib/api-resume';
 import Experience from '@/components/resume-exp';
-import markdownToHtml from '@/lib/markdownToHtml'
+import markdownToHtml from '@/lib/markdownToHtml';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudDownloadAlt } from '@fortawesome/free-solid-svg-icons';
+import Sidebar from '@/components/sidebar';
+import Link from 'next/link';
 
 function HeadMeta({ resume }) {
   return (
@@ -22,16 +26,35 @@ function HeadMeta({ resume }) {
   )
 }
 
+function Download() {
+  return (
+    <div className="absolute top-0 right-0 h-full">
+      <Sidebar>
+        <a href="/assets/resume/ling_resume.pdf" download
+           className="flex text-theme-link hover:text-theme-link-highlight hover:underline">
+          <FontAwesomeIcon className="h-6 mr-2" icon={faCloudDownloadAlt} />
+          Resume
+        </a>
+      </Sidebar>
+    </div>
+  )
+}
+
 export default function Resume({ exps }) {
   return (
     <Layout>
       <HeadMeta />
-      <div className="mx-auto">
-        <div>My Journey</div>
+      <div className="mx-auto py-4">
+        <div className="flex items-center justify-center mb-16">
+          <div className="w-1/4 md:w-40 h-1 bg-theme-bg-strong"/>
+          <div className="text-xl md:text-3xl text-theme-link mx-4">My Journey</div>
+          <div className="w-1/4 md:w-40 h-1 bg-theme-bg-strong"/>
+        </div>
         {
           exps.map((exp, index) => (<Experience key={index} exp={exp}/>))
         }
       </div>
+      <Download />
     </Layout>
   )
 }

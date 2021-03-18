@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <Meta />
       <div className="min-h-screen">
         <Header />
-        <main className="container mx-auto my-14 px-container">{children}</main>
+        <main className="relative container mx-auto my-14 px-container">{children}</main>
       </div>
       <Footer />
     </>

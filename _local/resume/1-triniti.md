@@ -2,10 +2,9 @@
 company: Triniti Interactive
 company-link: http://www.trinitigame.com
 title: Junior Unity Game Developer
-fromTime: June 2012
-toTime: June 2014
+time: June 2012 - June 2014
 location: Shanghai, China
-logo: 
+logo: /assets/resume/triniti.jpg
 ---
 
 

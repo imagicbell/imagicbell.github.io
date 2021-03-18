@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         theme: {
+          text: colors.black,
           meta: colors.coolGray[500],
           link: {
             DEFAULT: themeColor[500],

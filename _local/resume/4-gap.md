@@ -1,11 +1,8 @@
 ---
-company: Bloks Group
-company-link: https://www.bloks.com
-title: Senior Unity Developer
-fromTime: October 2016
-toTime: March 2020
+title: Transfer Gap
+time: March 2021 -
 location: Shanghai, China
-logo: 
+logo: /assets/resume/gap.jpg
 ---
 
 I became a mother, with a lovely son.

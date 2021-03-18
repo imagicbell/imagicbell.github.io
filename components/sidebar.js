@@ -1,9 +1,7 @@
-import Author from './author';
-
-export default function Sidebar() {
+export default function Sidebar({ children }) {
 	return (
 		<div className="sticky top-0">
-			<Author style={'full'}/>
+			{children}
 		</div>
 		
 	)

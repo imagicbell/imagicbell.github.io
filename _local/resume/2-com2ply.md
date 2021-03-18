@@ -1,10 +1,9 @@
 ---
 company: Com2Ply
 title: Unity Game Developer
-fromTime: August 2014
-toTime: September 2016
+time: August 2014 - September 2016
 location: Shanghai, China
-logo: 
+logo: /assets/resume/com2ply.jpg
 ---
 
 wish to start a new game. but no opportunity in triniti interactive

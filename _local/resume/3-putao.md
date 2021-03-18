@@ -2,10 +2,9 @@
 company: Bloks Group
 company-link: https://www.bloks.com
 title: Senior Unity Developer
-fromTime: October 2016
-toTime: March 2020
+time: October 2016 - March 2020
 location: Shanghai, China
-logo: 
+logo: /assets/resume/putao.jpg
 ---
 
 

@@ -5,6 +5,7 @@ import Head from 'next/head'
 import PostList from '@/components/post-list';
 import Layout from '@/components/layout'
 import Sidebar from '@/components/sidebar';
+import Author from '@/components/author';
 
 function HeadMeta({ category }) {
 	if (category) {
@@ -46,8 +47,12 @@ export default function Blog(props) {
 		<Layout>
 			<HeadMeta category={category} />
 			<div className='flex flex-row justify-between'>
-				<div className="w-full lg:w-2/3"><PostList curPage={page} pagePath={pagePath} {...props} /></div>
-				<div className="hidden lg:block lg:w-1/3 box-border ml-8"><Sidebar /></div>			
+				<div className="w-full lg:w-2/3">
+					<PostList curPage={page} pagePath={pagePath} {...props} />
+				</div>
+				<div className="hidden lg:block lg:w-1/3 box-border ml-8">
+					<Sidebar><Author style={'full'}/></Sidebar>
+				</div>			
 			</div>
 		</Layout>
 	)
