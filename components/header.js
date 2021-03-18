@@ -10,7 +10,7 @@ export default function Header() {
           <a className="">Magicbell's Website</a>
         </Link>
       </h2>
-      <SiteNav />
+      <SiteNav showHome={false} />
     </div>  
   )
 }

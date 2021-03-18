@@ -5,7 +5,7 @@ import { Settings } from '@/lib/constants';
 export default function Footer() {
   return (
     <footer className="w-full bg-theme-bg-strong px-container py-4 text-theme-bg-strong-text flex flex-col items-center">
-      <SiteNav />
+      <SiteNav showHome={true} />
       <div className="w-full my-2 flex flex-col sm:flex-row justify-between">
         <div className="text-xs">
           {'© 2021 Ling Mao. Powered by '}
