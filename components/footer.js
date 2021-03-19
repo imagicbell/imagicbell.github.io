@@ -1,5 +1,5 @@
 import SiteNav from './site-nav';
-import Share from './share';
+import SocialLink from './social-link';
 import { Settings } from '@/lib/constants';
 
 export default function Footer() {
@@ -15,11 +15,7 @@ export default function Footer() {
           .
         </div>
         <div className="flex justify-center sm:justify-end items-center">
-          <Share size={28} meta={{
-            path: '',
-            title: "Magicbell's Website" ,
-            image: Settings.author.coverImage,
-          }} />
+          <SocialLink inverse color="#fff" />
         </div>
       </div>
     </footer>
