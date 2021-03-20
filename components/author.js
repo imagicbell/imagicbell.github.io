@@ -13,6 +13,7 @@ function Full({ name, bio, avatar, location, links }) {
           src={avatar}
           alt=''
           layout='responsive'
+          objectFit='cover'
           width={180}
           height={180}
         />
