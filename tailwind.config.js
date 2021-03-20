@@ -57,6 +57,9 @@ module.exports = {
         '7xl': '4.5rem',
         '8xl': '6.25rem',
       },
+      zIndex: {
+        '-1': '-1',
+       }
     },
   },
 }
