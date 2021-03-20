@@ -12,6 +12,8 @@
 @tailwind utilities;
 /* Stop purging. */
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Rubik&display=swap');
+
 /* Your own custom utilities */
 * {
 	transition: all 0.2s ease-in-out;

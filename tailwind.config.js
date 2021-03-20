@@ -59,7 +59,11 @@ module.exports = {
       },
       zIndex: {
         '-1': '-1',
-       }
+       },
+      fontFamily: {
+        'rubik': 'Rubik, sans-serif',
+        'noto': 'Noto Serif, serif',
+      }
     },
   },
 }
