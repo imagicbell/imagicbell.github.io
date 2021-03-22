@@ -1,4 +1,11 @@
-import Head from 'next/head'
+import Head from 'next/head';
+
+const siteInfo = {
+  title: `Magicbell's Website`,
+  description: "Welcome to Magicbell's Website!",
+  image: '/assets/images/avatar.jpg',
+  color: '#fca5a5'
+}
 
 export default function Meta() {
   return (
@@ -24,15 +31,27 @@ export default function Meta() {
       <link
         rel="mask-icon"
         href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
+        color="#fca5a5"
       />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#000000" />
+      <meta name="msapplication-TileColor" content="#fca5a5" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <title>Magicbell's Website</title>
-      <meta name="description" content="Welcome to Magicbell's Website!" />
+      <meta name="theme-color" content={siteInfo.color} />
+      {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
+
+      <title>{siteInfo.title}</title>
+      <meta name="description" content={siteInfo.description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={siteInfo.title} />
+      <meta property="og:url" content='/' />
+      <meta property="og:description" content={siteInfo.description}/> 
+      <meta property="og:image" content={siteInfo.image} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={siteInfo.title} />
+      <meta name="twitter:description" content={siteInfo.description} />
+      <meta name="twitter:image" content={siteInfo.image} /> 
+
+
     </Head>
   )
 }

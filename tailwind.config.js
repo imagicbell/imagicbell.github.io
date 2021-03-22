@@ -1,8 +1,6 @@
 const colors = require('tailwindcss/colors');
 const themeColor = colors.red;
-const themeShadow = 'rgba(153, 27, 27, 0.12)'; /**color-red-300 */
 // const themeColor = colors.coolGray;
-// const themeShadow = 'rgba(0, 0, 0, 0.12)'; 
 
 
 module.exports = {
@@ -35,8 +33,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        sm: `0 5px 10px ${themeShadow}`,
-        md: `0 8px 30px ${themeShadow}`,
+        sm: `0 5px 10px ${themeColor[300]}1F`,
+        md: `0 6px 20px ${themeColor[500]}1F`,
       },
 
       padding: {

@@ -8,20 +8,23 @@ import { faCloudDownloadAlt } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '@/components/sidebar';
 import Link from 'next/link';
 
-function HeadMeta({ resume }) {
+function HeadMeta() {
+  const info = {
+    title: `Magicbell's Resume`,
+    desc: `The overview of my professsional journey. Also somewhere you can find a downloadable PDF resume.`,
+  }
+
   return (
     <Head>
-      {/* <title>{post.title}</title>
-      { post.description && <meta name="description" content={post.description}/> }
+      <title>{info.title}</title>
+      <meta name="description" content={info.desc}/>
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={post.title} />
-      <meta property="og:url" content={`/posts/${post.slug}`} />
-      { post.description && <meta property="og:description" content={post.description}/> }
-      { post.ogImage && <meta property="og:image" content={post.ogImage} /> }
+      <meta property="og:title" content={info.title} />
+      <meta property="og:url" content='/resume' />
+      <meta property="og:description" content={info.desc}/> 
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={post.title} />
-      { post.description && <meta name="twitter:description" content={post.description} /> }
-      { post.ogImage && <meta name="twitter:image" content={post.ogImage} /> } */}
+      <meta name="twitter:title" content={info.title} />
+      <meta name="twitter:description" content={info.desc} /> 
     </Head>
   )
 }

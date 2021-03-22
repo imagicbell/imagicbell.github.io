@@ -1,7 +1,8 @@
 import Layout from '@/components/layout';
 import Image from 'next/image';
 import Meta from '@/components/meta';
-import Link from 'next/link'
+import Link from 'next/link';
+
 
 export default function Index() {
   return (
