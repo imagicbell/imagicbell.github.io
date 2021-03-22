@@ -5,6 +5,7 @@ location: Shanghai, China
 logo: /assets/resume/gap.jpg
 ---
 
+tough but exciting
 I became a mother, with a lovely son.
 self-learn Web at home while also learning to be a good mother.
 course. projects. certificates. algorithms.
