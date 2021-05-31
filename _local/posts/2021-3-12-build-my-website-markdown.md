@@ -6,6 +6,16 @@ categories: Front-End
 
 
 
+## Contents
+
+1. [The choice of Next.js]({%POST_URL%}/2021-3-10-build-my-website-nextjs)
+2. Parse and Display Markdown
+3. [Style my website]({%POST_URL%}/2021-3-14-build-my-website-style)
+
+<br>
+
+
+
 Parsing and displaying **Markdown** files are one of the most important things in building a personal website, because all my blogs are written in Markdown. This article illustrates several things that I did in processing Markdown files.
 
 ## Parse YAML Front Matter

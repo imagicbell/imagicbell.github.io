@@ -8,9 +8,5 @@ logo: /assets/resume/triniti.jpg
 ---
 
 
-After I graduated from [Trinity College Dublin](https://www.tcd.ie), I came back to China and joined **Triniti Interactive**, a startup creating interesting mobile games. 
-unity
-implement features on iterative vesions of the best-seller 
-experienced in Unity
-
+I started my career at *Triniti Interactive*, a young company but already having developed top listed mobile games in the market. I was very lucky to work with the lead programmer who produced the most popular game in the company. My initial responsibility was to add features and fix bugs for a bestseller. Due to my competency, I was assigned to be in charge of the incremental development of two popular games, which had helped me gain a lot of experience in Unity game development. Two years later, I began to seek opportunities to develop heavier games, but *TI* targeted at light mobile games and changes in their business had not been seen. So I left *TI*.
 

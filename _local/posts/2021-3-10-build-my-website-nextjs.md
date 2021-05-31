@@ -6,6 +6,16 @@ categories: Front-End
 
 
 
+## Contents
+
+1. The choice of Next.js
+2. [Parse and Display Markdown]({%POST_URL%}/2021-3-12-build-my-website-markdown)
+3. [Style my website]({%POST_URL%}/2021-3-14-build-my-website-style)
+
+<br>
+
+
+
 I had always dreamed of building my own website, to express myself, to keep memory of what I have done, and to make others know me faster. Although I had self-learned web developing technologies, e.g. html/css, javascript, react, redux, jquery, etc, for a long time, there wasn't a golden chance to start this "huge" thing, regarding to the styling, routing, deploying and so on... *All beginnings are hard*:smile:
 
 I used [Jekyll](https://jekyllrb.com/) for my Blog. It's like this:

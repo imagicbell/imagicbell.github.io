@@ -7,6 +7,16 @@ excerpt: This article illustrates how I style my own website using Tailwindcss f
 
 
 
+## Contents
+
+1. [The choice of Next.js]({%POST_URL%}/2021-3-10-build-my-website-nextjs)
+2. [Parse and Display Markdown]({%POST_URL%}/2021-3-12-build-my-website-markdown)
+3. Style my website
+
+<br>
+
+
+
 ## Tailwindcss
 
 When considering styling, what comes in my mind is to choose a CSS framework. [Tailwindcss](https://tailwindcss.com/) wins against other popular frameworks, like [Bootstrap](https://getbootstrap.com/) and [Foundation](https://get.foundation/). The main reasons are:
@@ -20,6 +30,8 @@ When considering styling, what comes in my mind is to choose a CSS framework. [T
      >Rapidly build modern websites without ever leaving your HTML.
      >
      >A utility-first CSS framework packed with classes like `flex`, `pt-4`, `text-center` and `rotate-90` that can be composed to build any design, directly in your markup.
+
+  So we can easily understand what is behind these styles, and compose whatever css properties to achieve the desired style.
 
 4. I am familiar with the raw CSS styles. **Tailwindcss** pre-defines almost all the common styles in so called **utility classes**. So I can quickly style an element without writing any CSS code. Besides, VSCode has [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) to help me quickly tap utility classes.
 
@@ -91,4 +103,22 @@ In addition to `colors`, there are many more properties can be extended or overr
  
 
 ## Animation
+
+For page scrolling effect, which bumps up content one by one, I use the [AOS](https://michalsnik.github.io/aos/). It earns many github stars. It supports many effects like fade-in, flip, zoom, etc. The installation and usage is quite simple.
+
+After installing, I put the initialization code in the React `useEffect` hook in `_app.js`.
+
+```jsx
+export default function MyApp({ Component, pageProps }) {
+  //...
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
+  //...
+}
+```
+
+Next.js uses the `App` component to initialize pages. We can override it with our customized component for adding features to the page initialization.
 

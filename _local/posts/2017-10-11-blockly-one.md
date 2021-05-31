@@ -8,9 +8,20 @@ locale: cn
 
 
 
+## Contents
+
+1. Introduction
+2. [Blockly Model]({%POST_URL%}/2017-10-14-blockly-two)
+3. [Code Generator, Interpreter and Runner]({%POST_URL%}/2017-10-22-blockly-three)
+4. [UGUI Design]({%POST_URL%}/2017-10-31-blockly-four)
+
+<br>
+
+
+
 ## 前言
 
-现在所在的公司，是一家专注儿童科技、娱乐、教育的公司，而**编程**是时下比较热门的一个寓教于乐的领域，因此在公司项目中占比很高。公司初期的编程项目采用的是“自己造的轮子”，功能覆盖范围窄，扩展性小，无法满足后期越来越复杂多变的编程需求，因此决定借鉴[Google Blockly](https://developers.google.com/blockly/)。
+之前在公司接触了两款带可视化编程的项目，其编程实现不是很理想，扩展性小，无法满足后期越来越复杂多变的编程需求。当我了解了[Google Blockly](https://developers.google.com/blockly/)之后，决定尝试实现一套Unity的版本。
 
 Google Blockly现开发的有3个版本：
 
@@ -23,8 +34,6 @@ Google Blockly现开发的有3个版本：
 * iOS/Android版本需要通过插件的方式接入，扩展block的复杂度极高。
 * 无法支持Unity的特性，例如Coroutine。
 * 无法使用UGUI，UI交互设计灵活性低。
-
-因此，我们决定参考Google Blockly的设计思路，用C#重新实现一套Blockly，目标是在Unity、.Net环境中使用。
 
 
 
@@ -52,4 +61,3 @@ Google Blockly现开发的有3个版本：
 
 
 接下来的博文会详细提供做法，以及难点解决方案。
-
