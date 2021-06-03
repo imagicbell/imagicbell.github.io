@@ -57,7 +57,7 @@ export default function Resume({ exps }) {
           exps.map((exp, index) => (<Experience key={index} exp={exp}/>))
         }
       </div>
-      <Download />
+      {/* <Download /> */}
     </Layout>
   )
 }

@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 const siteInfo = {
   title: `Magicbell's Website`,
-  description: "Welcome to Magicbell's Website!",
+  description: "Welcome to Magicbell's Website, a place where you will know more about me from my professional experience and technical posts.",
   image: '/assets/images/avatar.jpg',
   color: '#fca5a5'
 }
