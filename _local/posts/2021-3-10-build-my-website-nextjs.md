@@ -45,7 +45,9 @@ However, what the most powerful  is that it supports [**dynamic routes**](https:
   -  `/blog/front-end`, `blog/unity`
   - `/blog/front-end/2`, `blog/unity/2`, `...`
 
-  *In `next.config.js`, I can define `/blog/page/1` redirecting to `/blog`, `/blog/front-end/1` redirecting `blog/front-end`. This is common web flavored*.  
+  ~~*In `next.config.js`, I can define `/blog/page/1` redirecting to `/blog`, `/blog/front-end/1` redirecting `blog/front-end`. This is common web flavored*.  ~~
+
+  *The `redirects` in next.config.js only works in Node.js environment, and do not affect client-side routing, see [this](https://nextjs.org/docs/api-reference/next.config.js/redirects). My website is statically exported, so when it is published on Github Pages, the `redirects` fails. Also I tried `rewrites`, but the result is not what I want, and it also fails to refresh by browser.*
 
 * in React Component, I can obtain the route data by `query` object, which is accessed by the `useRouter` hook in [`next/router`](https://nextjs.org/docs/api-reference/next/router). So for the above multi-format routes, I can distinguish them by:
 
