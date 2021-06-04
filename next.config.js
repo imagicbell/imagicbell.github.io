@@ -22,16 +22,16 @@ const devConfig = {
 
 module.exports = {
   ...(prod ? prodConfig : devConfig),
-  async rewrites() {
-    return [
-      {
-        source: '/blog/page/1',
-        destination: '/blog'
-      },
-      {
-        source: '/blog/:category/1',
-        destination: '/blog/:category'
-      },
-    ]
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/blog/page/1',
+  //       destination: '/blog'
+  //     },
+  //     {
+  //       source: '/blog/:category/1',
+  //       destination: '/blog/:category'
+  //     },
+  //   ]
+  // },
 }

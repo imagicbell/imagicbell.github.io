@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Paginate({ pageCount, curPage, pagePath }) {
+export default function Paginate({ pageCount, curPage, rootPath, subPath }) {
 	let pages;
 	if (pageCount <= 4) {
 		pages = new Array(pageCount).fill().map((_, index) => index + 1);
@@ -17,6 +17,13 @@ export default function Paginate({ pageCount, curPage, pagePath }) {
 	const width = (pages.length + 4)*2.5;
 	const enablePrev = curPage > 1;
 	const enableNext = curPage < pageCount;
+
+	let getUrl = index => {
+		if (index === 1) {
+			return rootPath;
+		}
+		return rootPath + subPath + "/" + index;
+	}
 
 	return (
 		<div className={`h-8 border border-theme-border rounded flex text-theme-link`} style={{width: `${width}rem`}}>
@@ -44,7 +51,7 @@ export default function Paginate({ pageCount, curPage, pagePath }) {
 				}
 			`}</style>
 
-			<Link href={`${pagePath}${curPage-1}`}>
+			<Link href={getUrl(curPage - 1)}>
 				<a className={`paginate hover:text-theme-link-highlight prev-next ${!enablePrev && 'disabled'}`}>Previous</a>	
 			</Link>
 			{
@@ -52,13 +59,13 @@ export default function Paginate({ pageCount, curPage, pagePath }) {
 					let disabled_cn = (page === curPage || page === '...') ? 'disabled text-theme-link-disable' : '';
 					let current_cn = page === curPage ? 'current bg-theme-link' : '';
 					return (
-						<Link key={page} href={`${pagePath}${page}`}>
+						<Link key={page} href={getUrl(page)}>
 							<a  className={`paginate hover:text-theme-link-highlight page-num border-l border-theme-border ${disabled_cn} ${current_cn}`}>{page}</a>
 						</Link>
 					)
 				})
 			}
-			<Link href={`${pagePath}${curPage+1}`}>
+			<Link href={getUrl(curPage + 1)}>
 				<a className={`paginate hover:text-theme-link-highlight prev-next border-l border-theme-border ${!enableNext && 'disabled text-theme-link-disable'}`}>Next</a>
 			</Link>
 		</div>

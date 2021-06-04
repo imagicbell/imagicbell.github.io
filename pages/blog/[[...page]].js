@@ -41,14 +41,14 @@ export default function Blog(props) {
 		category = router.query.page[0];
 		page = router.query.page[1] ? parseInt(router.query.page[1]) : 1;
 	}
-	let pagePath = category ? `/blog/${category}/` : '/blog/page/';
+	let [rootPath, subPath] = category ? [`/blog/${category}`, ''] : ['/blog', '/page'];
 
 	return (
 		<Layout>
 			<HeadMeta category={category} />
 			<div className='flex flex-row justify-between'>
 				<div className="w-full lg:w-2/3">
-					<PostList curPage={page} pagePath={pagePath} {...props} />
+					<PostList curPage={page} rootPath={rootPath} subPath={subPath} {...props} />
 				</div>
 				<div className="hidden lg:block lg:w-1/3 box-border ml-8">
 					<Sidebar><Author style={'full'}/></Sidebar>
