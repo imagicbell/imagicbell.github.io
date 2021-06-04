@@ -10,8 +10,10 @@ export default function Index() {
       <Meta />
       <Image 
         src="/assets/images/cover.jpg"
+        alt=""
         layout="fill"
         objectFit="cover"
+        priority={true}
       />
       <div className='absolute top-0 left-0 w-full h-1/2 flex flex-col items-center justify-center text-white'>
         <h3 className="italic font-rubik text-lg sm:text-xl">Hi, I'm</h3>

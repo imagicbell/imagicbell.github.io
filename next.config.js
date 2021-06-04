@@ -9,7 +9,7 @@ const prodConfig = {
   },
   env: {
     basePath: basePath,
-    domain: "",
+    domain: "https://imagicbell.github.io",
   }
 }
 
