@@ -3,7 +3,6 @@ import Paginate from './paginate'
 
 
 export default function PostList({ posts, ...paginateProps }) {
-
 	return (
 		<div className="max-w-2xl">
 			<div className='mb-16'>

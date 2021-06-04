@@ -5,7 +5,7 @@ const prodConfig = {
   basePath: basePath,
   images: {
     loader: 'imgix',
-    path: basePath,  
+    path: "https://imagicbell.github.io",  
   },
   env: {
     basePath: basePath,
