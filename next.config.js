@@ -3,10 +3,6 @@ const basePath = "";
 
 const prodConfig = {
   basePath: basePath,
-  images: {
-    loader: 'imgix',
-    path: "https://imagicbell.github.io",  
-  },
   env: {
     basePath: basePath,
     domain: "https://imagicbell.github.io",
@@ -20,18 +16,10 @@ const devConfig = {
   }
 };
 
-module.exports = {
+const withOptimizedImages = require('next-optimized-images');
+
+module.exports = withOptimizedImages({
+  optimizeImagesInDev: true,
+
   ...(prod ? prodConfig : devConfig),
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/blog/page/1',
-  //       destination: '/blog'
-  //     },
-  //     {
-  //       source: '/blog/:category/1',
-  //       destination: '/blog/:category'
-  //     },
-  //   ]
-  // },
-}
+});

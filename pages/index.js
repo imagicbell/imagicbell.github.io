@@ -1,20 +1,16 @@
 import Layout from '@/components/layout';
-import Image from 'next/image';
 import Meta from '@/components/meta';
 import Link from 'next/link';
-
 
 export default function Index() {
   return (
     <div className="relative w-screen h-screen">
       <Meta />
-      <Image 
-        src="/assets/images/cover.jpg"
-        alt=""
-        layout="fill"
-        objectFit="cover"
-        priority={true}
-      />
+      <img className="absolute left-0 top-0 w-full h-full object-cover" src={require('@images/cover.jpg?lqip')} alt=''/>
+      <picture>
+        <source srcSet={require('@images/cover.jpg?webp')} type="image/webp" />
+        <img className="absolute left-0 top-0 w-full h-full object-cover"  src={require('@images/cover.jpg')} />
+      </picture>
       <div className='absolute top-0 left-0 w-full h-1/2 flex flex-col items-center justify-center text-white'>
         <h3 className="italic font-rubik text-lg sm:text-xl">Hi, I'm</h3>
         <h1 className="font-rubik font-bold text-7xl sm:text-8xl">LING MAO</h1>

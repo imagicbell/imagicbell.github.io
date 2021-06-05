@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Settings } from '@/lib/constants';
 import SocialLink from './social-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,14 +7,12 @@ function Full({ name, bio, avatar, location, links }) {
   return (
     <div className="border border-solid border-theme-border rounded shadow-sm flex flex-col">
       <div className="px-20 mt-6">
-        <Image
-          className="rounded-full"
-          src={avatar}
-          alt=''
-          layout='responsive'
-          objectFit='cover'
-          width={180}
-          height={180}
+        <img
+          className="object-cover rounded-full" 
+          src={avatar} 
+          alt="" 
+          width="180"
+          height="180"
         />
       </div>
       <div className="m-6">
@@ -33,35 +30,6 @@ function Full({ name, bio, avatar, location, links }) {
   )
 }
 
-function Small({ avatar, links }) {
-  return (
-    <div className="flex flex-col items-center" >
-      <div className="w-full">
-        <Image
-          className="rounded-full"
-          src={avatar}
-          alt=''
-          layout='responsive'
-          width={60}
-          height={60}
-        />
-      </div>
-      {/* <div className="flex flex-col items-center">
-        {
-          links.map((link, id) => (
-            <div key={id}>
-              <div className="w-0.5 h-2 bg-theme-bg"></div> 
-              <a href={link.href}>
-                <FontAwesomeIcon className="h-6" style={{color: link.color}} icon={link.icon}/>
-              </a>
-            </div>
-          ))
-        }
-      </div> */}
-    </div>
-  )
-} 
-
 export default function Author({ style }) {
   const info = {
     name: Settings.author.name,
@@ -70,9 +38,5 @@ export default function Author({ style }) {
     location: Settings.author.location,
   };
 
-  return (
-    style === 'small' 
-    ? <Small {...info} />
-    : <Full {...info} />
-  )
+  return <Full {...info} />
 }

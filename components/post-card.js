@@ -1,7 +1,6 @@
 import DateFormatter from './date-formatter';
 import MarkdownContent from './markdown-content';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Dot } from './segment'
 
 export default function PostCard({ post }) {
@@ -18,12 +17,11 @@ export default function PostCard({ post }) {
 			<div className="absolute left-0 top-0 w-full h-24 bg-theme-bg">
 			{
 				post.ogImage && (
-					<Image
+					<img
 						src={post.ogImage}
 						alt=''
-						// className='opacity-60'
-						layout='fill'
-						objectFit='cover'
+						className="object-cover w-full h-full"
+						loading="lazy"
 					/>
 				) 
 			}

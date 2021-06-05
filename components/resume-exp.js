@@ -2,18 +2,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import MarkdownContent from './markdown-content';
 import { Dot } from './segment';
-import Image from 'next/image'
+
+const expImages = {
+	'triniti': require('@images/resume/triniti.jpg'),
+	'com2ply': require('@images/resume/com2ply.jpg'),
+	'putao': require('@images/resume/putao.jpg'),
+	'gap': require('@images/resume/gap.jpg'),
+}
 
 export default function Experience({ exp, ...props }) {
+	console.log(exp.slug)
 	return (
 		<div {...props} 
 				 data-aos="fade-up"
 				 className="flex items-start flex-col md:flex-row mb-16">
 			<div className="px-12 pb-4 w-full md:w-1/3 flex justify-center md:justify-end">
-				<Image 
+				<img 
 					className="rounded-2xl"
-					src={exp.logo}
-					layout="intrinsic"
+					src={expImages[exp.slug]}
 					width={180}
 					height={180}
 				/>

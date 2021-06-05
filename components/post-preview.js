@@ -1,7 +1,6 @@
 import DateFormatter from './date-formatter';
 import MarkdownContent from './markdown-content'
 import Link from 'next/link';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolderOpen } from '@fortawesome/free-solid-svg-icons'
 import { Dot } from './segment'
@@ -16,12 +15,7 @@ export default function PostPreview({ post }) {
       {
         post.ogImage && (
           <div className="relative h-80 w-full">
-            <Image
-              src={post.ogImage}
-              alt=''
-              layout='fill'
-              objectFit='cover'
-            />
+            <img src={post.ogImage} alt="" className="object-cover w-full h-full" loading="lazy"/>
           </div>
         )
       }
