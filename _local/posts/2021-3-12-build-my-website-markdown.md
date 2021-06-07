@@ -11,6 +11,7 @@ categories: Front-End
 1. [The choice of Next.js]({%POST_URL%}/2021-3-10-build-my-website-nextjs)
 2. Parse and Display Markdown
 3. [Style my website]({%POST_URL%}/2021-3-14-build-my-website-style)
+4. [Image Optimization]({%POST_URL%}/2021-6-5-build-my-website-image-opti)
 
 <br>
 

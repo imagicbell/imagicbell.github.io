@@ -12,6 +12,7 @@ excerpt: This article illustrates how I style my own website using Tailwindcss f
 1. [The choice of Next.js]({%POST_URL%}/2021-3-10-build-my-website-nextjs)
 2. [Parse and Display Markdown]({%POST_URL%}/2021-3-12-build-my-website-markdown)
 3. Style my website
+4. [Image Optimization]({%POST_URL%}/2021-6-5-build-my-website-image-opti)
 
 <br>
 

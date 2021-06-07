@@ -11,6 +11,7 @@ categories: Front-End
 1. The choice of Next.js
 2. [Parse and Display Markdown]({%POST_URL%}/2021-3-12-build-my-website-markdown)
 3. [Style my website]({%POST_URL%}/2021-3-14-build-my-website-style)
+4. [Image Optimization]({%POST_URL%}/2021-6-5-build-my-website-image-opti)
 
 <br>
 
@@ -146,7 +147,33 @@ There is no need to illustrate how [React](https://reactjs.org/) makes it easier
 
 Next.js app is recommended to deploy on [Vercel](https://vercel.com/), because it is an all-in-one platform developed by the same team. However, in spite of  [Vercel](https://vercel.com/), I also want to deploy it on Github Pages, where my old Blog is, until I have my own domain.
 
-[Here](https://github.com/imagicbell/deploy-nextjs-to-github-pages) is how I did.
+The following steps show how I did to deploy to gh pages:
+
+1. Create a github repository, named with `[github-user-name].github.io`. If you don't follow this template, the pages will be under a subpath, e.g.. `[github-user-name].github.io/[custom-github-repository-name]`, which may bring inconvenience in path.
+
+2. Set the remote origin to github repository.
+
+3. Do some customized configuration in `next.config.js`, like adding environment variables, plugins, etc.
+
+4. Install [rimraf](https://www.npmjs.com/package/rimraf), [gh-pages](https://www.npmjs.com/package/gh-pages).
+
+5. Add scripts in `package.json`:
+
+   ```json
+   {
+   	"scripts": {
+       "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
+     },
+   }
+   ```
+
+6. Run 
+
+   ```shell
+   npm run deploy
+   ```
+
+7. Change github repository **Settings**. Navigate to **GitHub Pages**, set the **Source** to be branch **"gh-pages"**, directory **/(root)**, and click **Save**.
 
 
 
