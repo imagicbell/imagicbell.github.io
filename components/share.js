@@ -16,7 +16,7 @@ export default function Share({ size, meta }) {
 			<TwitterShareButton className={margin} url={shareUrl} title={meta.title} >
 				<TwitterIcon size={size} round />
 			</TwitterShareButton>
-			<LinkedinShareButton className={margin} url={shareUrl} >
+			<LinkedinShareButton className={margin} url={shareUrl} title={meta.title} >
 				<LinkedinIcon size={size} round />
 			</LinkedinShareButton>
 			<WeiboShareButton className={margin} url={shareUrl} title={meta.title} image={meta.image && `${process.env.domain}${process.env.basePath}${meta.image}`}>
