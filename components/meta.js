@@ -4,7 +4,7 @@ const siteInfo = {
   title: `Magicbell's Website`,
   description: "Welcome to Magicbell's Website, a place where you will know more about me from my professional experience and technical posts.",
   image: require('@images/avatar.jpg'),
-  color: '#fca5a5'
+  color: '#ef4444'
 }
 
 export default function Meta() {
@@ -31,10 +31,10 @@ export default function Meta() {
       <link
         rel="mask-icon"
         href="/favicon/safari-pinned-tab.svg"
-        color="#fca5a5"
+        color={siteInfo.color}
       />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#fca5a5" />
+      <meta name="msapplication-TileColor" content={siteInfo.color} />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content={siteInfo.color} />
       {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
