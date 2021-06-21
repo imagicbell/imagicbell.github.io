@@ -4,7 +4,8 @@ const siteInfo = {
   title: `Magicbell's Website`,
   description: "Welcome to Magicbell's Website, a place where you will know more about me from my professional experience and technical posts.",
   image: require('@images/avatar.jpg'),
-  color: '#ef4444'
+  color: '#ef4444',
+  url: process.env.baseUrl,
 }
 
 export default function Meta() {
@@ -43,7 +44,7 @@ export default function Meta() {
       <meta name="description" content={siteInfo.description} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={siteInfo.title} />
-      <meta property="og:url" content='/' />
+      <meta property="og:url" content={siteInfo.url} />
       <meta property="og:description" content={siteInfo.description}/> 
       <meta property="og:image" content={siteInfo.image} />
       <meta name="twitter:card" content="summary" />

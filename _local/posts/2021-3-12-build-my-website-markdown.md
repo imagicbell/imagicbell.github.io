@@ -72,7 +72,7 @@ I chose [showdown](https://github.com/showdownjs/showdown) to help me convert **
       {
         type: 'lang',
         regex: /\{\%\s*POST_URL\s*\%\}/g,
-        replace: `${process.env.basePath}/posts`
+        replace: '/posts'
       },	
      ],
      ```

@@ -6,7 +6,7 @@ import {
 } from 'react-share';
 
 export default function Share({ size, meta }) {
-	const shareUrl = `${process.env.domain}${process.env.basePath}${meta.path}`;
+	const shareUrl = `${process.env.baseUrl}${meta.path}`;
 	const margin = `mx-${Math.floor(size/10)}`;
 	return (
 		<>
@@ -19,7 +19,7 @@ export default function Share({ size, meta }) {
 			<LinkedinShareButton className={margin} url={shareUrl} title={meta.title} >
 				<LinkedinIcon size={size} round />
 			</LinkedinShareButton>
-			<WeiboShareButton className={margin} url={shareUrl} title={meta.title} image={meta.image && `${process.env.domain}${process.env.basePath}${meta.image}`}>
+			<WeiboShareButton className={margin} url={shareUrl} title={meta.title} image={meta.image && `${process.env.baseUrl}${meta.image}`}>
 				<WeiboIcon size={size} round />
 			</WeiboShareButton>
 		</>

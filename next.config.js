@@ -1,18 +1,15 @@
 const prod = process.env.NODE_ENV === "production";
-const basePath = ""; 
 
 const prodConfig = {
-  basePath: basePath,
+  // basePath: basePath,
   env: {
-    basePath: basePath,
-    domain: "https://imagicbell.github.io",
+    baseUrl: "https://imagicbell.github.io",
   }
 }
 
 const devConfig = {
   env: {
-    basePath: '',
-    domain: "http://localhost:3000"
+    baseUrl: "http://localhost:3000"
   }
 };
 
