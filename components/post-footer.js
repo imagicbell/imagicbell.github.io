@@ -50,7 +50,7 @@ function PostDisqus({ post }) {
 			shortname='https-imagicbell-github-io'
 			config={
 				{
-						url: `/posts/${post.slug}`,
+						url: `${process.env.domain}${process.env.basePath}/posts/${post.slug}`,
 						identifier: post.slug,
 						title: post.title,
 						language: 'en' 
