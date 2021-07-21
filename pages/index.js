@@ -14,7 +14,7 @@ export default function Index() {
       <div className='absolute top-0 left-0 w-full h-1/2 flex flex-col items-center justify-center text-white'>
         <h3 className="italic font-rubik text-lg sm:text-xl">Hi, I'm</h3>
         <h1 className="font-rubik font-bold text-7xl sm:text-8xl">LING MAO</h1>
-        <h3 className="font-noto font-medium text-lg sm:text-xl">a Web and Game Developer</h3>
+        <h3 className="font-noto font-medium text-lg sm:text-xl">a Frontend and Unity Developer</h3>
         <h3 className="my-4 font-noto font-medium text-base sm:text-lg text-gray-100">
           Here are my&nbsp;
           <Link href='/blog'>
