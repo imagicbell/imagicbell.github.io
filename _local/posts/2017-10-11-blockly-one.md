@@ -15,6 +15,13 @@ locale: cn
 3. [Code Generator, Interpreter and Runner]({%POST_URL%}/2017-10-22-blockly-three)
 4. [UGUI Design]({%POST_URL%}/2017-10-31-blockly-four)
 
+For English:
+
+1. [Introduction]({%POST_URL%}/2021-6-10-ublockly-introduction)
+2. [Blockly Model]({%POST_URL%}/2021-6-11-ublockly-model)
+3. [Code Interpreter and Runner]({%POST_URL%}/2021-6-12-ublockly-interpreter-runner)
+4. [UGUI Design]({%POST_URL%}/2021-6-13-ublockly-ugui)
+
 <br>
 
 

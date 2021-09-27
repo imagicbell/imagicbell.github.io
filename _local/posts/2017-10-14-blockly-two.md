@@ -13,6 +13,13 @@ locale: cn
 3. [Code Generator, Interpreter and Runner]({%POST_URL%}/2017-10-22-blockly-three)
 4. [UGUI Design]({%POST_URL%}/2017-10-31-blockly-four)
 
+For English:
+
+1. [Introduction]({%POST_URL%}/2021-6-10-ublockly-introduction)
+2. [Blockly Model]({%POST_URL%}/2021-6-11-ublockly-model)
+3. [Code Interpreter and Runner]({%POST_URL%}/2021-6-12-ublockly-interpreter-runner)
+4. [UGUI Design]({%POST_URL%}/2021-6-13-ublockly-ugui)
+
 <br>
 
 
@@ -29,11 +36,10 @@ locale: cn
 * Variable是作用在一个Workspace中的全局变量。
 
 * <a id="block">Block</a>代表一段可执行程序。
+  
   * 类比于一个方法，可以有输出（作为另一个Block的输入使用），也可以是没有输出（作为一个命令接在另一个Block下面执行）。
   * Blocks之间的关系有两种：输入/输出，前/后。Blocks在一个Workspace中的结构如下：
     ```
-    hierarchy of blocks:
-
     - Block(Topmost in workspace)
       - ConnectionOutput
       - ConnectionPrev
@@ -52,11 +58,11 @@ locale: cn
     - Block
       ...
     ```
-
+  
 * Connection是实现Blocks之间的连接的关键，方式如下： 
 
   ```
-  Block.ConnectionOutput -> Block.Input.ConnectionInput
+  Block.ConnectionOutput <-> Block.Input.ConnectionInput
   Block.ConnectionPrev <-> Block.ConnectionNext
   ```
 
@@ -64,31 +70,51 @@ locale: cn
 
   * 一个Input包含若干Field，以及一个Connection用来连接输入Block。
 
-  * 依照json定义Block的描述，按顺序创建Input。
+  * 依照json语义，按顺序创建Input。每个input之前的field都包含在该input里，如果剩下的field后没有定义input，则创建一个dummy input来包含剩下的fields。
 
     <a id="json_message">一个例子：</a>
 
     ```
-    "message0": "%1 %2 %{BKY_LISTS_SPLIT_WITH_DELIMITER} %3"
+    "message0": "%{BKY_COROUTINE_WAIT_TITLE} %1 %2",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "TIME",
+        "check": "Number"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "UNIT",
+        "options": [
+          ["%{BKY_TIME_UNIT_MILLISECOND}", "MILLISECOND"],
+          ["%{BKY_TIME_UNIT_SECONDS}", "SECONDS"],
+          ["%{BKY_TIME_UNIT_MINUTES}", "MINUTES"],
+          ["%{BKY_TIME_UNIT_TOO_HIGH}", "TOOHIGH"]
+        ]
+      }
+    ],
     ```
 
-    * `%1`: field_dropdown
-    * `%2`: input_value
-    * `%{BKY_LISTS_SPLIT_WITH_DELIMITER}`: 多语言的key
-    * `%3`: input_value
+    Block结果显示为：
 
-    因此该Block有两个Input:
+    ![](/blog/assets/img-blockly/JsonDef_1.png)
 
-    1. 包括field_dropdown，Input Connection；
-    2. 包括field_label（文字用label实现），Input Connection；
+    `message0`定义了block的形态：
+
+    * `%{BKY_COROUTINE_WAIT_TITLE}`: 多语言的key
+    * `%1`: input_value
+    * `%2`: field_dropdown
+
+    该Block有两个Input:
+
+    1. input_value，Input Connection；
+    2. dummy input。因为field_dropdown后没有input，因此创建一个dummy input来包含该field_dropdown。
 
 * Field描述Block的属性、状态，拿上例解释：
 
-  * field_dropdown：提供menu选择，不同选项代表了该Block执行不同的功能，比如算术运算的`+`, `-`, `*`, `/`。
-  * field_label: 提供文字表达，用来补充描述该Block的功能。
+  `field_dropdown`：提供menu选择，不同选项代表了该Block执行不同的功能，比如算术运算的`+`, `-`, `*`, `/`。
 
   除此之外，还有`field_variable`, `field_number`, `field_textinput`等，开发者也可自己定义。
-
 
 
 

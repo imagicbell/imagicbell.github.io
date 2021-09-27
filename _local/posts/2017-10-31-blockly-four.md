@@ -15,6 +15,13 @@ locale: cn
 3. [Code Generator, Interpreter and Runner]({%POST_URL%}/2017-10-22-blockly-three)
 4. UGUI Design
 
+For English:
+
+1. [Introduction]({%POST_URL%}/2021-6-10-ublockly-introduction)
+2. [Blockly Model]({%POST_URL%}/2021-6-11-ublockly-model)
+3. [Code Interpreter and Runner]({%POST_URL%}/2021-6-12-ublockly-interpreter-runner)
+4. [UGUI Design]({%POST_URL%}/2021-6-13-ublockly-ugui)
+
 <br>
 
 
@@ -112,70 +119,76 @@ Hierarchy中的每一个元素，都是一个View，因此我们抽象了基类`
 
 UGUI有一套Layout机制，是依赖于Transform Hierarchy，在每一个生命周期的Update之后统一计算的，先后不可控，因此无法根据View的依赖关系按照正确的顺序计算。
 
-什么是正确的顺序？四个字概括：自下而上。依赖已经建立好的[Hierarchy](#view-hierarchy)，先从最小的元素Fields开始，计算起始位置和大小，然后遍历Next，依次叠加大小来计算起始位置，然后Parent，迭代下去，直到结束。代码大致如下：
+什么是正确的顺序？四个字概括：自下而上。请看流程图：
+
+![](/blog/assets/img-blockly/Layout_10.png)
+
+代码大致如下：
 
 ```c#
-Vector2 newSize = CalculateSize();
-if (XY != startPos) XY = startPos;
-if (Size != newSize) Size = newSize;
-
-switch (Type)
+public void UpdateLayout(Vector2 startPos)
 {
-    case ViewType.Field:
-    case ViewType.Input:
-    case ViewType.ConnectionInput:
-    case ViewType.LineGroup:
-    {
-        if (m_Next == null)
-        {
-            //reach the last child, or no change in current hierarchy, update it's parent view
-            m_Parent.UpdateLayout(m_Parent.SiblingIndex == 0 ? m_Parent.HeaderXY : m_Parent.XY);
-        }
-        else
-        {
-            //update next
-            if (Type != ViewType.LineGroup)
-            {
-                // same line
-                startPos.x += Size.x + BlockViewSettings.Get().ContentSpace.x;
-            }
-            else
-            {
-                // start a new line
-                startPos.y -= Size.y + BlockViewSettings.Get().ContentSpace.y;
-            }
+    XY = startPos;
+    Size = CalculateSize();
 
-            BaseView topmostChild = m_Next.GetTopmostChild();
-            if (topmostChild != m_Next)
+    switch (Type)
+    {
+        case ViewType.Field:
+        case ViewType.Input:
+        case ViewType.ConnectionInput:
+        case ViewType.LineGroup:
+        {
+            if (m_Next == null /*|| (!changePos && !changeSize)*/)
             {
-                //need to update from its topmost child
-                m_Next.XY = startPos;
-                topmostChild.UpdateLayout(topmostChild.HeaderXY);
+                //reach the last child, or no change in current hierarchy, update it's parent view
+                m_Parent.UpdateLayout(m_Parent.SiblingIndex == 0 ? m_Parent.HeaderXY : m_Parent.XY);
             }
             else
             {
-                m_Next.UpdateLayout(startPos);
+                //update next
+                if (Type != ViewType.LineGroup)
+                {
+                    // same line
+                    startPos.x += Size.x + BlockViewSettings.Get().ContentSpace.x;
+                }
+                else
+                {
+                    // start a new line
+                    startPos.y -= Size.y + BlockViewSettings.Get().ContentSpace.y;
+                }
+
+                BaseView topmostChild = m_Next.GetTopmostChild();
+                if (topmostChild != m_Next)
+                {
+                    //need to update from its topmost child
+                    m_Next.XY = startPos;
+                    topmostChild.UpdateLayout(topmostChild.HeaderXY);
+                }
+                else
+                {
+                    m_Next.UpdateLayout(startPos);
+                }
             }
+            break;
         }
-        break;
-    }
-    case ViewType.Connection:
-    case ViewType.Block:
-    {
-        //no need to update its m_Next, as it is handled by Unity's Transform autolayout 
-        //update its parent directly
-        if (m_Parent != null)
+        case ViewType.Connection:
+        case ViewType.Block:
         {
-            m_Parent.UpdateLayout(m_Parent.SiblingIndex == 0 ? m_Parent.HeaderXY : m_Parent.XY);
+            //no need to update its m_Next, as it is handled by Unity's Transform autolayout 
+            //update its parent directly
+            if (m_Parent != null)
+            {
+                m_Parent.UpdateLayout(m_Parent.SiblingIndex == 0 ? m_Parent.HeaderXY : m_Parent.XY);
+            }
+            break;
         }
-        break;
     }
 }
 ```
 
 
 
-### Custom Background Draw
+### Adjusted Background
 
 动态Layout之后，带来的就是底图的实时绘制，当然采用了九宫格的方式，但是简单的九宫格缩放不能满足需求，看这个：
 
@@ -211,12 +224,11 @@ switch (Type)
 
 二分搜索法的前提是，有序序列，因此需要对Workspace中的所有Connection Point进行排列。做法是：
 
-1. 基于Point的`y`坐标，维护一个有序的Connection Point Map。
+1. 根据connection point的`y`坐标进行排序。
 2. 每当Block改变时（增、删、移动），将其Connection Point插入到Map中合适的位置，这个位置也是通过二分搜索法查找，只考虑`y`坐标。
+3. 当要搜索最近Connection时，先通过`y`坐标找到其在Map中的位置，然后向两边通过比对距离来查找，也考虑Connection的兼容性（例如：数学运算符两边只允许数字输入）。
 
-当要搜索Connection时，先通过`y`坐标找到其在Map中的位置，然后向两边查找。时间复杂度为*O(logn)*。
-
-当要搜索最近Connection时，也是先通过`y`坐标找到其在Map中的位置，然后向两边通过比对距离来查找，也考虑Connection的兼容性（例如：数学运算符两边只允许数字输入）。时间复杂度为*O(logn)*，并且也平均减少了计算量。
+时间复杂度为*O(logn)*，并且也平均减少了计算量。
 
 ### Manipulate Views
 
@@ -234,6 +246,6 @@ Workspace可以保存为Xml文件，当然是基于Block可以保存为一个Xml
 
 Block具有[Mutation特性]({%POST_URL%}/2017-10-14-blockly-two#section-mutation特性)，可以动态修改Block结构，因此动态生成Block View的功能为此提供了便利，可以动态增删Input Views。
 
+<br>
 
-
-UI部分还有很多可以优化，暂时先介绍这么多。当然如果有更好的设计方案，也欢迎指出，互相学习～
+这整套UI方案来自于HTML流体设计的灵感。技术是相通的:smile:.
