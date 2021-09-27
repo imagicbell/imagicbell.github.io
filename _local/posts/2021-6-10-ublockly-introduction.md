@@ -33,7 +33,7 @@ Block-based programming language has seen a growing popularity nowadays, both in
 
 ## Showcase
 
-![](/blog/assets/img-blockly/Demo.png) ![](/blog/assets/img-blockly/DemoLog.png)
+![](/blog/assets/img-blockly/Demo.png)
 
 
 

@@ -46,7 +46,7 @@ Google Blockly现开发的有3个版本：
 
 ## Demo 展示
 
-![](/blog/assets/img-blockly/Demo.png) ![](/blog/assets/img-blockly/DemoLog.png)
+![](/blog/assets/img-blockly/Demo.png) 
 
 
 
